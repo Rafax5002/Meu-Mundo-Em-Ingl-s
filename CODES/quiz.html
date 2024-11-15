@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <h1>Meu Mundo em Inglês</h1>
+        </header>
+        <main>
+            <div class="quiz-container">
+                <h2>Quiz</h2>
+                <div class="category-select">
+                    <label for="category">Escolha uma categoria:</label>
+                    <select id="category">
+                        <option value="">Selecione</option>
+                        <option value="grammar">Gramática</option>
+                        <option value="vocabulary">Vocabulário</option>
+                        <option value="reading">Compreensão de Leitura</option>
+                        <option value="idioms">Expressões Idiomáticas</option>
+                        <option value="culture">Cultura e História dos Países de Língua Inglesa</option>
+                    </select>
+                </div>
+                <button id="startQuizButton" onclick="startQuiz()">Começar Quiz</button>
+                <form id="quizForm" style="display:none;">
+                    <div id="questionsContainer"></div>
+                    <button type="button" onclick="submitQuiz()">Enviar</button>
+                </form>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2024 Meu Mundo em Inglês</p>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>

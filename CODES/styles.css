@@ -1,0 +1,133 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #F0F8FF;
+    margin: 0;
+    padding: 0;
+    color: #333333;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #FFFFFF;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+.form-container, .quiz-container, .about-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #FFFFFF;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: #1E90FF;
+    margin-bottom: 20px;
+}
+
+form, #quizContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333333;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #1C86EE;
+}
+
+footer {
+    background-color: #1E90FF;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.image-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
