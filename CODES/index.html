@@ -1,35 +1,225 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Mundo em Inglês | Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>Meu Mundo em Inglês</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="cadastro.html">Cadastro</a></li>
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="quiz.html">Quiz</a></li>
-                </ul>
-            </nav>
-        </header>
-        <main>
-            <div class="about-container">
-                <h2>Sobre Mim</h2>
-                <p>Olá! Eu sou [Seu Nome], um entusiasta de [Seu Interesse].</p>
-                <div class="image-container">
-                    <img src="https://www.brazilts.com.br/blog/wp-content/uploads/2023/10/6683141_570-1-2048x1365.jpg" alt="Imagem do Projeto">
-                </div>
+    <!-- Header / Navbar -->
+    <header id="scroll-element">
+        <nav class="navbar">
+            <a href="#" class="nav-logo">
+            </a>
+            <ul class="nav-menu">
+                <button id="menu-close-button" class="fas fa-times"></button>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link">Serviços</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#menu" class="nav-link">Equipe</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contato</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="cadastro.html" class="nav-link">Cadastro</a>
+                </li>
+            </ul>
+            <button id="menu-open-button" class="fas fa-bars"></button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- bloco de recepção do site -->
+        <section class="hero-section" id="section-image">
+            <div class="bloco">
+                <div class="section-content">
+                    <div class="hero-details">
+                        <h3 class="subtitle"> QUER MELHORAR SEU INGLÊS? <span>FAÇA LOGIN E DESCUBRA COMO!</span> </h3>
+                        <br>
+                        <div class="buttons"> <a href="#contact" class="button contact-us">Contate-nos</a> </div>
+                    </div>
+                </div> <!-- Adicionando imagem de fundo --> <img src="imgs/english.jpg" alt="Imagem de fundo"
+                    class="background-image">
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Meu Mundo em Inglês</p>
-        </footer>
-    </div>
+
+            <!-- bloco do quiz -->
+            <section class="about-section" id="quiz">
+                <div class="section-content">
+                    <div class="about-image-wrapper">
+                        <img src="imgs/quiz.png" alt="Quiz Interativo" style="width: 500px;" />
+                    </div>
+                    <div class="about-details">
+                        <h1 class="section-title">Teste seu Inglês com Nosso Quiz Interativo!</h1>
+                        <div class="test-section">
+                            <p>Responda a algumas perguntas para avaliar seu nível de inglês.</p>
+                            <button class="button contact-us">Iniciar Quiz</button>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- bloco de nossos Serviços -->
+            <section class="menu-section" id="menu">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <div class="section-content">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <img src="imgs/monitoramento.jpg" alt="Monitoramento de Progresso" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Monitoramento de Progresso</h3>
+                                <p class="text">Com base nas respostas do quiz, criamos dashboards personalizadas que
+                                    permitem monitorar seu progresso e identificar áreas para melhoria contínua no
+                                    aprendizado de inglês.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/conversacao.png" alt="Prática de Conversação" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Quiz Interativo</h3>
+                                <p class="text">Teste seus conhecientos em diversos conteúdos de inglês com um Quiz
+                                    feito
+                                    especialmente para prática da língua.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/analise.png" alt="Análise de Desempenho" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Análise de Desempenho</h3>
+                                <p class="text">Receba análises detalhadas sobre seu desempenho e sugestões
+                                    personalizadas
+                                    para alcançar a melhor eficiência no aprendizado em inglês.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- bloco sobre nós -->
+            <section class="about-section" id="about">
+                <div class="section-content">
+                    <div class="about-image-wrapper">
+                        <img src="imgs/rafael.jpg" alt="Sobre nós" style="width: 400px;" />
+                    </div>
+                    <div class="about-details">
+                        <h2 class="section-title">Sobre Mim</h2>
+                        <p class="text">Sou Rafael Pires, um aluno da SPTech, que é também um grande fâ da Língua
+                            Inglesa.
+                            Certificado Cambridge na modalidade B2 via FCE, cursei CNA entre os anos de 2014 até 2022.
+                        </p>
+                        <div class="social-link-list">
+                            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- bloco missão, valores e visão -->
+            <section class="menu-section" id="Missao">
+                <h2 class="section-title">Meus Princípios</h2>
+                <div class="section-content">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <img src="imgs/valores.png" alt="Valores" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Valores</h3>
+                                <p class="text">Valorizo uma educação de qualidade, com engajamento do estudante.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/missao.png" alt="Missão" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Missão</h3>
+                                <p class="text">Nossa missão é garantir que cada aluno atinja seu potencial máximo no
+                                    aprendizado de inglês, oferecendo soluções personalizadas e inovadoras.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/visao.png" alt="Visão" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Visão</h3>
+                                <p class="text">Ser referência em educação de inglês, reconhecidos por nossa inovação e
+                                    compromisso com a qualidade, elevando o padrão de ensino.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!--bloco de contate-nos-->
+                <section class="contact-section" id="contact">
+                    <h2 class="section-title">Contato</h2>
+                    <div class="section-content">
+                        <ul class="contact-info-list">
+                            <li class="contact-info">
+                                <i class="fa-solid fa-location-crosshairs"></i>
+                                <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-regular fa-envelope"></i>
+                                <p>contato@meumundoemingles.com.br</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-solid fa-phone"></i>
+                                <p>(11) 99999-9999</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-regular fa-clock"></i>
+                                <p>Segunda - Sexta: 10h15 - 16h15</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-regular fa-clock"></i>
+                                <p>Sábado: 10:00 - 14:00</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-regular fa-clock"></i>
+                                <p>Domingo: Fechado</p>
+                            </li>
+                            <li class="contact-info">
+                                <i class="fa-solid fa-globe"></i>
+                                <p>www.meumundoemingles.com.br</p>
+                            </li>
+                        </ul>
+                        <form action="#" class="contact-form">
+                            <input type="text" placeholder="Seu nome" class="form-input" required />
+                            <input type="email" placeholder="Seu email" class="form-input" required />
+                            <textarea placeholder="Sua mensagem" class="form-input" required></textarea>
+                            <button type="submit" class="button submit-button">Enviar</button>
+                        </form>
+                    </div>
+                </section>
+                <!-- Footer section -->
+                <footer class="footer-section">
+                    <div class="section-content">
+                        <p class="copyright-text">© 2024 Meu Mundo em Inglês</em></p>
+                        <div class="social-link-list">
+                            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                        </div>
+
+                    </div>
+                </footer>
+    </main>
 </body>
+
 </html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>

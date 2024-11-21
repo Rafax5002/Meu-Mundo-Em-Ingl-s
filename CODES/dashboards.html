@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Dashboard de Desempenho</h1>
+    </header>
+    <main>
+        <section class="dashboard-container">
+            <!-- Categoria mais selecionadas para perguntas -->
+            <div class="chart-card">
+                <h2>Categoria Mais Selecionada</h2>
+                <canvas id="categoriaMaisSelecionada"></canvas>
+            </div>
+            <!-- Pergunta que teve mais erros de acordo com a categoria -->
+            <div class="chart-card">
+                <h2>Pergunta com Mais Erros</h2>
+                <canvas id="perguntaMaisErros"></canvas>
+            </div>
+            <!-- Respostas certas e erradas do usuário -->
+            <div class="chart-card">
+                <h2>Respostas Certas e Erradas</h2>
+                <canvas id="respostasCertasErradas"></canvas>
+            </div>
+        </section>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

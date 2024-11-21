@@ -1,39 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Cadastro</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Queijo no ponto | Cadastro Empresarial </title>
+    <link rel="stylesheet" href="style-cadastro.css" />
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>Meu Mundo em Inglês</h1>
-        </header>
-        <main>
-            <div class="form-container">
-                <h2>Cadastro</h2>
-                <form id="cadastroForm">
-                    <div class="form-group">
-                        <label for="username">Usuário:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Cadastrar</button>
-                </form>
+    <section class="container">
+        <header>Cadastro Empresarial</header>
+        <form action="#" class="form">
+            <div class="input-box">
+                <label>Razão Social:</label>
+                <input id="razao_input" type="text" placeholder="  Razão Social" />
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Meu Mundo em Inglês</p>
-        </footer>
-    </div>
-    <script src="scripts.js"></script>
+
+            <div class="input-box">
+                <label>Nome fantasia:</label>
+                <input id="nome_input" type="text" placeholder="  Nome da Empresa" />
+            </div>
+
+            <div class="column">
+                <div class="input-box">
+                    <label>Número de Telefone</label>
+                    <input type="number" placeholder="Digite o número de telefone" required />
+                </div>
+                <div class="input-box">
+                    <label>CNPJ:</label>
+                    <input id="cnpj_input" type="text" placeholder="Digite seu Cnpj" onkeyup="validarCNPJ()" />
+                    <div id="validacaoCNPJ"></div>
+                </div>
+            </div>
+            <div class="input-box">
+                <label>Representante legal:</label>
+                <input id="representante_input" type="text" placeholder="  Nome do Representante" />
+            </div>
+            <div class="input-box address">
+                <label>Endereço</label>
+                <input type="text" placeholder="Digite o endereço" required />
+                <input type="text" placeholder="Digite o complemento do endereço" required />
+                <div class="column">
+                    <div class="select-box">
+                        <select>
+                            <option hidden value="">País</option>
+                            <option value="africa-do-sul">África do Sul</option>
+                            <option value="alemanha">Alemanha</option>
+                            <option value="argentina">Argentina</option>
+                            <option value="australia">Austrália</option>
+                            <option value="brasil">Brasil</option>
+                            <option value="canada">Canadá</option>
+                            <option value="china">China</option>
+                            <option value="coreia-do-sul">Coreia do Sul</option>
+                            <option value="espanha">Espanha</option>
+                            <option value="estados-unidos">Estados Unidos</option>
+                            <option value="franca">França</option>
+                            <option value="india">Índia</option>
+                            <option value="italia">Itália</option>
+                            <option value="japao">Japão</option>
+                            <option value="mexico">México</option>
+                            <option value="portugal">Portugal</option>
+                            <option value="reino-unido">Reino Unido</option>
+                            <option value="russia">Rússia</option>
+                            <option value="turquia">Turquia</option>
+                          </select>                          
+                    </div>
+                    <input type="text" placeholder="Digite sua cidade" required />
+                </div>
+                <div class="column">
+                    <input type="text" placeholder="Digite sua região" required />
+                    <input type="number" placeholder="Digite o código postal" required />
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-box">
+                    <label>Senha:</label>
+                    <input id="senha_input" type="password" placeholder="  ******" onkeyup="validarSenha()" />
+                    <br>
+                    <div id="validacaoSenha"></div>
+                    <!-- <button class="botaozinho" onclick="gerarSenha()">Gerar Senha</button> -->
+                </div>
+                <div class="input-box">
+                    <label>Confirmação da Senha:</label>
+                    <input id="confirmacao_senha_input" type="password" placeholder="  ******"
+                        onkeyup="confirmacaoSenha()" />
+                </div>
+                <div id="validacaoConfirmacao"></div>
+            </div>
+            </div>
+            <button>Enviar</button>
+        </form>
+    </section>
+
 </body>
+
 </html>

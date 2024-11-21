@@ -1,35 +1,100 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" dir="ltr">
+
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="styles.css">
+    <title> Meu Mundo em Inglês | Login </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/" type="image/x-icon">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>Meu Mundo em Inglês</h1>
-        </header>
-        <main>
-            <div class="form-container">
-                <h2>Login</h2>
-                <form id="loginForm">
-                    <div class="form-group">
-                        <label for="username">Usuário:</label>
-                        <input type="text" id="username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Senha:</label>
-                        <input type="password" id="password" name="password" required>
-                    </div>
-                    <button type="submit">Entrar</button>
-                </form>
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="imgs/caderno-login.jpg" alt="">
+                <div class="text">
+                    <span class="text-1"> PRATIQUE SEU INGLÊS! <span>FAÇA LOGIN E DESCUBRA COMO!</span>
+                        <!-- <span class="text-2">Vamos nos conectar</span> -->
+                </div>
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Meu Mundo em Inglês</p>
-        </footer>
+            <div class="back">
+                <img class="backImg" src="imgs/caderno-login.jpg" alt="">
+                <div class="text">
+                    <span class="text-1">NÃO PERCA TEMPO! <span>CADASTRE-SE E ALCANCE A FLUÊNCIA!</span>
+                        <!-- <span class="text-2"></span> -->
+                </div>
+            </div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+                <div class="login-form">
+                    <div class="title">Entrar</div>
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Digite seu email" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input type="password" placeholder="Digite sua senha" required>
+                            </div>
+                            <div class="text"><a href="#">Esqueceu a senha?</a></div>
+                            <div class="button input-box">
+                                <input type="submit" value="Enviar">
+                            </div>
+                            <div class="text sign-up-text">Não tem uma conta? <label for="flip">Cadastre-se agora</label></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="signup-form">
+                    <div class="title">Cadastrar</div>
+                    <form action="#">
+                        <div class="input-boxes">
+                            <div class="input-box">
+                                <i class="fas fa-user"></i>
+                                <input type="text" placeholder="Digite seu nome" required>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-id-card"></i>
+                                <input id="cpf_input" type="number" placeholder="Digite seu CPF" onkeyup="validarCPF()" />
+                                <div id="validacaoCPF"></div><br>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-envelope"></i>
+                                <input type="text" placeholder="Digite seu email" required>
+                            </div>
+                            <div class="input-box">
+                               <i class="fas fa-phone"></i>
+                                <input id="telefone_input" type="text" placeholder="Digite seu telefone" onkeyup="validarTelefone()" />
+                                <div id="validacaoTelefone"></div><br>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <!-- <button class="botaozinho" onclick="gerarSenha()">Gerar Senha</button> -->
+                                <input type="password" placeholder="Digite sua senha" onkeyup="validarSenha()" required>
+                                <div id="validacaoSenha"></div><br>
+                            </div>
+                            <div class="input-box">
+                                <i class="fas fa-lock"></i>
+                                <input id="confirmacao_senha_input" type="password" placeholder="Confirmar Senha" onkeyup="confirmacaoSenha()" />
+                                <div id="validacaoConfirmacao"></div><br>
+                            </div>
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" onclick="Validacao()" value="Enviar">
+                        </div>
+                        <div class="text sign-up-text">Já tem uma conta? <label for="flip">Entrar agora</label></div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-    <script src="scripts.js"></script>
 </body>
+
 </html>

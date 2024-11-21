@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Mundo em Inglês | Quiz</title>
+    <link rel="stylesheet" href="style-quiz.css">
 </head>
+
 <body>
-    <div class="wrapper">
-        <header>
-            <h1>Meu Mundo em Inglês</h1>
-        </header>
-        <main>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Meu Mundo em Inglês</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+                <li><a href="contato.html" class="nav-link">Contato</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-open-button">☰</button>
+            <button class="menu-toggle" id="menu-close-button">✖</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="quiz-section">
+            <h1 class="section-title">Teste Seu Inglês</h1>
             <div class="quiz-container">
-                <h2>Quiz</h2>
-                <div class="category-select">
-                    <label for="category">Escolha uma categoria:</label>
-                    <select id="category">
-                        <option value="">Selecione</option>
-                        <option value="grammar">Gramática</option>
-                        <option value="vocabulary">Vocabulário</option>
-                        <option value="reading">Compreensão de Leitura</option>
-                        <option value="idioms">Expressões Idiomáticas</option>
-                        <option value="culture">Cultura e História dos Países de Língua Inglesa</option>
-                    </select>
-                </div>
-                <button id="startQuizButton" onclick="startQuiz()">Começar Quiz</button>
-                <form id="quizForm" style="display:none;">
-                    <div id="questionsContainer"></div>
-                    <button type="button" onclick="submitQuiz()">Enviar</button>
+                <form id="quizForm">
+                    <div class="form-group">
+                        <label for="category">Selecione a categoria:</label>
+                        <select id="category" required>
+                            <option value="">Selecione...</option>
+                            <option value="grammar">Gramática</option>
+                            <option value="vocabulary">Vocabulário</option>
+                            <option value="reading">Leitura</option>
+                            <option value="idioms">Expressões Idiomáticas</option>
+                        </select>
+                    </div>
+
+                    <div id="questionsContainer" class="questions-container">
+                        <!-- Perguntas serão carregadas aqui -->
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" onclick="startQuiz()">Iniciar Quiz</button>
+                    </div>
                 </form>
             </div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Meu Mundo em Inglês</p>
-        </footer>
-    </div>
-    <script src="scripts.js"></script>
+        </section>
+
+        <section class="results-section" id="results">
+            <h2 class="results-title">Resultado</h2>
+            <div id="resultsContainer" class="results-container">
+                <!-- Resultados serão exibidos aqui -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Mundo em Inglês. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
