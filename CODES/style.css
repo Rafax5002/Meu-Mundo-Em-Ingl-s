@@ -273,6 +273,7 @@ header .navbar {
   max-width: 45%;
   font-size: var(--font-size-xxl);
   font-weight: var(--font-weight-semibold);
+  color: #000000
 }
 
 .hero-section .hero-details .description {

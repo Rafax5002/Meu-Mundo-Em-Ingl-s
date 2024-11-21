@@ -25,11 +25,11 @@
 
     <main>
         <section class="quiz-section">
-            <h1 class="section-title">Teste Seu Inglês</h1>
+            <h1 class="section-title">Teste Seu Inglês!</h1>
             <div class="quiz-container">
                 <form id="quizForm">
                     <div class="form-group">
-                        <label for="category">Selecione a categoria:</label>
+                        <label for="category">Selecione uma categoria:</label>
                         <select id="category" required>
                             <option value="">Selecione...</option>
                             <option value="grammar">Gramática</option>
@@ -46,12 +46,12 @@
                     <div class="form-group">
                         <button type="button" onclick="startQuiz()">Iniciar Quiz</button>
                     </div>
+
                 </form>
             </div>
         </section>
 
         <section class="results-section" id="results">
-            <h2 class="results-title">Resultado</h2>
             <div id="resultsContainer" class="results-container">
                 <!-- Resultados serão exibidos aqui -->
             </div>
@@ -62,7 +62,89 @@
         <p>&copy; 2024 Meu Mundo em Inglês. Todos os direitos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        const questions = {
+            grammar: [
+                { question: "Qual é a forma correta do verbo no passado: 'She ____ to the store yesterday'?", options: ["go", "went", "goes", "gone"], answer: "went" },
+                { question: "Complete a frase: 'They ____ playing soccer when it started to rain.'", options: ["is", "were", "was", "are"], answer: "were" },
+                { question: "Qual a forma correta do verbo na frase: 'If I ____ rich, I would travel the world.'", options: ["am", "was", "were", "be"], answer: "were" },
+                { question: "Complete a frase: 'I have never ____ to Japan.'", options: ["go", "went", "gone", "going"], answer: "gone" },
+                { question: "Qual a forma correta da sentença interrogativa: '____ you ever been to London?'", options: ["Has", "Had", "Have", "Did"], answer: "Have" },
+            ],
+            vocabulary: [
+                { question: "Qual é o sinônimo de 'happy'?", options: ["sad", "joyful", "angry", "tired"], answer: "joyful" },
+                { question: "Complete a frase: 'The antonym of 'big' is ____.'", options: ["large", "small", "huge", "tall"], answer: "small" },
+                { question: "Qual é o significado da palavra 'frequent'?", options: ["rare", "often", "never", "sometimes"], answer: "often" },
+                { question: "Complete a frase: 'She is very ____ and always helps others.'", options: ["mean", "kind", "selfish", "rude"], answer: "kind" },
+                { question: "Qual é o contrário de 'begin'?", options: ["start", "end", "continue", "open"], answer: "end" },
+            ],
+            reading: [
+                { question: "Leia a frase e responda: 'Jane went to the market and bought apples and oranges. What did Jane buy?'", options: ["Apples and bananas", "Oranges and bananas", "Apples and oranges", "Bananas and grapes"], answer: "Apples and oranges" },
+                { question: "Leia o parágrafo e responda: 'Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.' Quem é Max?", options: ["Tom's friend", "Tom's brother", "Tom's dog", "Tom's cat"], answer: "Tom's dog" },
+                { question: "Leia a frase e responda: 'Sarah loves to read books. She goes to the library every weekend.' Onde Sarah vai todo fim de semana?", options: ["To the park", "To the library", "To the store", "To the gym"], answer: "To the library" },
+                { question: "Leia o parágrafo e responda: 'The sun is shining and the sky is clear. It is a perfect day for a picnic.' Como está o tempo?", options: ["Rainy", "Snowy", "Sunny", "Cloudy"], answer: "Sunny" },
+                { question: "Leia a frase e responda: 'Mark works as a doctor. He loves helping people and making them feel better.' Qual é a profissão de Mark?", options: ["Teacher", "Doctor", "Engineer", "Pilot"], answer: "Doctor" },
+            ]
+        };
+
+        // Função para iniciar o quiz
+        function startQuiz() {
+            const category = document.getElementById('category').value;
+            const selectedQuestions = questions[category];
+            const questionsContainer = document.getElementById('questionsContainer');
+            questionsContainer.innerHTML = '';
+
+            selectedQuestions.forEach((q, index) => {
+                const questionDiv = document.createElement('div');
+                questionDiv.className = 'question';
+                questionDiv.innerHTML = `
+                    <p>${index + 1}. ${q.question}</p>
+                    ${q.options.map((option, i) => `
+                        <div>
+                            <input type="radio" name="q${index}" id="q${index}o${i}" value="${option}">
+                            <label for="q${index}o${i}">${option}</label>
+                        </div>
+                    `).join('')}
+                `;
+                questionsContainer.appendChild(questionDiv);
+            });
+
+            const submitButton = document.createElement('button');
+            submitButton.innerText = 'Enviar Quiz';
+            submitButton.onclick = submitQuiz;
+            questionsContainer.appendChild(submitButton);
+        }
+
+        // Função para enviar o quiz e calcular os resultados
+        function submitQuiz() {
+            const category = document.getElementById('category').value;
+            const selectedQuestions = questions[category];
+
+            let score = 0;
+            selectedQuestions.forEach((q, index) => {
+                const userAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+                if (userAnswer && userAnswer.value === q.answer) {
+                    score++;
+                }
+            });
+
+            alert(`Você acertou ${score} de ${selectedQuestions.length} perguntas!`);
+        }
+
+        // Menu toggle para dispositivos móveis
+        const menuOpenButton = document.getElementById('menu-open-button');
+        const menuCloseButton = document.getElementById('menu-close-button');
+        const navMenu = document.querySelector('.nav-menu');
+
+        menuOpenButton.addEventListener('click', () => {
+            navMenu.classList.add('show-mobile-menu');
+        });
+
+        menuCloseButton.addEventListener('click', () => {
+            navMenu.classList.remove('show-mobile-menu');
+        });
+    </script>
+
 </body>
 
 </html>
