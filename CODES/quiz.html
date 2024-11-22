@@ -16,7 +16,6 @@
                 <li><a href="index.html" class="nav-link">Início</a></li>
                 <li><a href="cadastro.html" class="nav-link">Cadastro</a></li>
                 <li><a href="login.html" class="nav-link">Login</a></li>
-                <li><a href="contato.html" class="nav-link">Contato</a></li>
             </ul>
             <button class="menu-toggle" id="menu-open-button">☰</button>
             <button class="menu-toggle" id="menu-close-button">✖</button>
@@ -74,26 +73,33 @@
             vocabulary: [
                 { question: "Qual é o sinônimo de 'happy'?", options: ["sad", "joyful", "angry", "tired"], answer: "joyful" },
                 { question: "Complete a frase: 'The antonym of 'big' is ____.'", options: ["large", "small", "huge", "tall"], answer: "small" },
-                { question: "Qual é o significado da palavra 'frequent'?", options: ["rare", "often", "never", "sometimes"], answer: "often" },
+                { question: "Qual é um sinônimo da palavra 'frequent'?", options: ["rare", "often", "never", "sometimes"], answer: "often" },
                 { question: "Complete a frase: 'She is very ____ and always helps others.'", options: ["mean", "kind", "selfish", "rude"], answer: "kind" },
                 { question: "Qual é o contrário de 'begin'?", options: ["start", "end", "continue", "open"], answer: "end" },
             ],
             reading: [
-                { question: "Leia a frase e responda: 'Jane went to the market and bought apples and oranges. What did Jane buy?'", options: ["Apples and bananas", "Oranges and bananas", "Apples and oranges", "Bananas and grapes"], answer: "Apples and oranges" },
-                { question: "Leia o parágrafo e responda: 'Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.' Quem é Max?", options: ["Tom's friend", "Tom's brother", "Tom's dog", "Tom's cat"], answer: "Tom's dog" },
-                { question: "Leia a frase e responda: 'Sarah loves to read books. She goes to the library every weekend.' Onde Sarah vai todo fim de semana?", options: ["To the park", "To the library", "To the store", "To the gym"], answer: "To the library" },
-                { question: "Leia o parágrafo e responda: 'The sun is shining and the sky is clear. It is a perfect day for a picnic.' Como está o tempo?", options: ["Rainy", "Snowy", "Sunny", "Cloudy"], answer: "Sunny" },
-                { question: "Leia a frase e responda: 'Mark works as a doctor. He loves helping people and making them feel better.' Qual é a profissão de Mark?", options: ["Teacher", "Doctor", "Engineer", "Pilot"], answer: "Doctor" },
+                { question: "Leia a frase e responda: 'Jane went to the market and bought apples and oranges. What did Jane buy?'", options: ["Maçãs e Bananas", "Laranjas e Bananas", "Maçãs e Laranjas", "Bananas e Uvas"], answer: "Maçãs e Laranjas" },
+                { question: "Leia o parágrafo e responda: 'Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.' Quem é Max?", options: ["Amigo do Tom", "Irmão do Tom", "Cachorro do Tom", "Papagaio do Tom"], answer: "Cachorro do Tom" },
+                { question: "Leia a frase e responda: 'Sarah loves to read books. She goes to the library every weekend.' Onde Sarah vai todo fim de semana?", options: ["Ao parque", "A biblioteca", "A uma loja", "A academia"], answer: "A biblioteca" },
+                { question: "Leia o parágrafo e responda: 'The sun is shining and the sky is clear. It is a perfect day for a picnic.' Como está o clima?", options: ["Rainy", "Snowy", "Sunny", "Cloudy"], answer: "Sunny" },
+                { question: "Leia a frase e responda: 'Mark works as a doctor. He loves helping people and making them feel better.' Qual é a profissão de Mark?", options: ["Professor", "Médico", "Engenheiro", "Piloto"], answer: "Médico" },
+            ],
+            idioms: [ 
+                { question: "O que significa a expressão idiomática 'Break the ice'?", options: ["Quebrar o gelo literal", "Iniciar uma conversa em uma situação desconfortável", "Ficar nervoso", "Refrigerar algo"], answer: "Iniciar uma conversa em uma situação desconfortável" },
+                { question: "Qual é o significado da expressão 'Hit the books'?", options: ["Acertar os livros fisicamente", "Ler casualmente", "Começar a estudar seriamente", "Arrumar a estante de livros"], answer: "Começar a estudar seriamente" },
+                { question: "O que significa a expressão 'Let the cat out of the bag'?", options: ["Deixar o gato sair da bolsa", "Revelar um segredo acidentalmente", "Cuidar de um animal de estimação", "Ser cauteloso"], answer: "Revelar um segredo acidentalmente" },
+                { question: "Qual é o significado da expressão 'Bite the bullet'?", options: ["Morder uma bala de verdade", "Enfrentar uma situação difícil com coragem", "Fugir de um problema", "Tomar uma decisão impulsiva"], answer: "Enfrentar uma situação difícil com coragem" },
+                { question: "O que significa a expressão 'Spill the beans'?", options: ["Derramar feijões literal", "Confessar ou revelar um segredo", "Cozinhar algo", "Guardar um segredo"], answer: "Confessar ou revelar um segredo" }
             ]
         };
-
+    
         // Função para iniciar o quiz
         function startQuiz() {
             const category = document.getElementById('category').value;
             const selectedQuestions = questions[category];
             const questionsContainer = document.getElementById('questionsContainer');
             questionsContainer.innerHTML = '';
-
+    
             selectedQuestions.forEach((q, index) => {
                 const questionDiv = document.createElement('div');
                 questionDiv.className = 'question';
@@ -108,43 +114,46 @@
                 `;
                 questionsContainer.appendChild(questionDiv);
             });
-
+    
             const submitButton = document.createElement('button');
             submitButton.innerText = 'Enviar Quiz';
             submitButton.onclick = submitQuiz;
             questionsContainer.appendChild(submitButton);
         }
-
+    
         // Função para enviar o quiz e calcular os resultados
-        function submitQuiz() {
-            const category = document.getElementById('category').value;
-            const selectedQuestions = questions[category];
+        function submitQuiz(event) {
+    event.preventDefault(); // Evita o refresh da página
 
-            let score = 0;
-            selectedQuestions.forEach((q, index) => {
-                const userAnswer = document.querySelector(`input[name="q${index}"]:checked`);
-                if (userAnswer && userAnswer.value === q.answer) {
-                    score++;
-                }
-            });
+    // Adicionar classe hidden para esconder o formulário do quiz
+    document.getElementById('quizForm').classList.add('hidden');
 
-            alert(`Você acertou ${score} de ${selectedQuestions.length} perguntas!`);
+    const category = document.getElementById('category').value;
+    const selectedQuestions = questions[category];
+
+    let score = 0;
+    selectedQuestions.forEach((q, index) => {
+        const userAnswer = document.querySelector(`input[name="q${index}"]:checked`);
+        if (userAnswer && userAnswer.value === q.answer) {
+            score++;
         }
+    });
 
-        // Menu toggle para dispositivos móveis
-        const menuOpenButton = document.getElementById('menu-open-button');
-        const menuCloseButton = document.getElementById('menu-close-button');
-        const navMenu = document.querySelector('.nav-menu');
+    const resultsContainer = document.getElementById('resultsContainer');
+    resultsContainer.innerHTML = `
+        Você acertou ${score} de ${selectedQuestions.length} perguntas!
+        <div class="result-buttons">
+            <button onclick="location.reload()">Refazer Quiz</button>
+            <button onclick="location.href='dash.html'">Ir para Dash</button>
+        </div>
+    `;
 
-        menuOpenButton.addEventListener('click', () => {
-            navMenu.classList.add('show-mobile-menu');
-        });
+    // Mostrar a seção de resultados
+    document.getElementById('results').classList.remove('hidden');
+}
 
-        menuCloseButton.addEventListener('click', () => {
-            navMenu.classList.remove('show-mobile-menu');
-        });
     </script>
-
+    
 </body>
 
 </html>

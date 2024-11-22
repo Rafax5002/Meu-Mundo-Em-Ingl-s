@@ -10,6 +10,18 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
 </head>
+<style>
+    header {
+        background: #0044cc;
+        color: #fff;
+        padding: 1rem;
+    }
+    .nav-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff;
+}
+</style>
 
 <body>
     <!-- Header / Navbar -->
@@ -22,22 +34,13 @@
                     <a href="#" class="nav-link">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#menu" class="nav-link">Serviços</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">Sobre</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#menu" class="nav-link">Equipe</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contato</a>
+                    <a href="#about" class="nav-link">Sobre Mim</a>
                 </li>
                 <li class="nav-item">
                     <a href="login.html" class="nav-link">Login</a>
                 </li>
                 <li class="nav-item">
-                    <a href="cadastro.html" class="nav-link">Cadastro</a>
+                    <a href="login.html" class="nav-link">Cadastro</a>
                 </li>
             </ul>
             <button id="menu-open-button" class="fas fa-bars"></button>
@@ -52,7 +55,6 @@
                     <div class="hero-details">
                         <h3 class="subtitle"> QUER MELHORAR SEU INGLÊS? <span>FAÇA LOGIN E DESCUBRA COMO!</span> </h3>
                         <br>
-                        <div class="buttons"> <a href="#contact" class="button contact-us">Contate-nos</a> </div>
                     </div>
                 </div> <!-- Adicionando imagem de fundo --> <img src="imgs/english.jpg" alt="Imagem de fundo"
                     class="background-image">
@@ -68,7 +70,7 @@
                         <h1 class="section-title">Teste seu Inglês com Nosso Quiz Interativo!</h1>
                         <div class="test-section">
                             <p>Responda a algumas perguntas para avaliar seu nível de inglês.</p>
-                            <button class="button contact-us">Iniciar Quiz</button>
+                            <button onclick="location.href='quiz.html'" class="button contact-us">Iniciar Quiz</button>
                         </div>
 
                     </div>
@@ -77,14 +79,15 @@
 
             <!-- bloco de nossos Serviços -->
             <section class="menu-section" id="menu">
-                <h2 class="section-title">Nossos Serviços</h2>
+                <h2 class="section-title">O que vai encontrar aqui?</h2>
                 <div class="section-content">
                     <ul class="menu-list">
                         <li class="menu-item">
                             <img src="imgs/monitoramento.jpg" alt="Monitoramento de Progresso" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Monitoramento de Progresso</h3>
-                                <p class="text">Com base nas respostas do quiz, foram criadas dashboards personalizadas que
+                                <p class="text">Com base nas respostas do quiz, foram criadas dashboards personalizadas
+                                    que
                                     permitem monitorar seu progresso e identificar áreas para melhoria contínua no
                                     aprendizado de inglês.</p>
                             </div>
@@ -102,8 +105,7 @@
                             <img src="imgs/analise.png" alt="Análise de Desempenho" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Análise de Desempenho</h3>
-                                <p class="text">Receba análises detalhadas sobre seu desempenho e sugestões
-                                    personalizadas
+                                <p class="text">Receba análises detalhadas sobre seu desempenho
                                     para alcançar a melhor eficiência no aprendizado em inglês.</p>
                             </div>
                         </li>
@@ -148,7 +150,7 @@
                             <img src="imgs/missao.png" alt="Missão" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Missão</h3>
-                                <p class="text">Nossa missão é garantir que cada aluno atinja seu potencial máximo no
+                                <p class="text">Minha missão é garantir que cada usuário atinja seu potencial máximo no
                                     aprendizado de inglês, oferecendo soluções personalizadas e inovadoras.</p>
                             </div>
                         </li>
@@ -156,8 +158,8 @@
                             <img src="imgs/visao.png" alt="Visão" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Visão</h3>
-                                <p class="text">Ser referência em educação de inglês, reconhecidos por nossa inovação e
-                                    compromisso com a qualidade, elevando o padrão de ensino.</p>
+                                <p class="text">Ser uma mão amiga para qualquer usuário que tenha o objetivo de
+                                    aperfeiçoar seu inglês.</p>
                             </div>
                         </li>
                     </ul>

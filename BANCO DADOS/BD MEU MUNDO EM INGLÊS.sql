@@ -3,87 +3,80 @@ CREATE DATABASE MeuMundoEmIngles;
 USE MeuMundoEmIngles;
 
 
-CREATE TABLE Usuarios (
-    id_usuario INT AUTO_INCREMENT PRIMARY KEY,
+-- Criar tabela de usuários
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(100) NOT NULL,
-    data_cadastro DATE NOT NULL
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
-CREATE TABLE Conteudos (
-    id_conteudo INT AUTO_INCREMENT PRIMARY KEY,
-    titulo VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    data_publicacao DATE NOT NULL,
-    tipo_conteudo VARCHAR(10) NOT NULL,
-    CONSTRAINT chk_tipo_conteudo CHECK (tipo_conteudo IN ('artigo', 'video', 'podcast'))
+-- Criar tabela de categorias
+CREATE TABLE categorias (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(50) NOT NULL
 );
 
-
-CREATE TABLE Categorias (
-    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
-    nome_categoria VARCHAR(100) NOT NULL
+-- Criar tabela de perguntas
+CREATE TABLE perguntas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    categoria_id INT,
+    pergunta TEXT NOT NULL,
+    resposta_correta VARCHAR(50) NOT NULL,
+    FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
 
-
-CREATE TABLE Conteudo_Categorias (
-    id_conteudo INT,
-    id_categoria INT,
-    PRIMARY KEY (id_conteudo, id_categoria),
-    FOREIGN KEY (id_conteudo) REFERENCES Conteudos(id_conteudo),
-    FOREIGN KEY (id_categoria) REFERENCES Categorias(id_categoria)
+-- Criar tabela de respostas
+CREATE TABLE respostas (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    pergunta_id INT,
+    resposta TEXT NOT NULL,
+    FOREIGN KEY (pergunta_id) REFERENCES perguntas(id)
 );
 
+-- Inserir categorias
+INSERT INTO categorias (nome) VALUES ('Gramática');
+INSERT INTO categorias (nome) VALUES ('Vocabulário');
+INSERT INTO categorias (nome) VALUES ('Leitura');
+INSERT INTO categorias (nome) VALUES ('Expressões Idiomáticas');
 
-CREATE TABLE Comentarios (
-    id_comentario INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    id_conteudo INT,
-    texto_comentario TEXT NOT NULL,
-    data_comentario DATE NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario),
-    FOREIGN KEY (id_conteudo) REFERENCES Conteudos(id_conteudo)
-);
+-- Inserir perguntas
+INSERT INTO perguntas (categoria_id, pergunta, resposta_correta) VALUES 
+(1, 'Qual é a forma correta do verbo no passado: ''She ____ to the store yesterday''?', 'went'),
+(1, 'Complete a frase: ''They ____ playing soccer when it started to rain.''', 'were'),
+(1, 'Qual a forma correta do verbo na frase: ''If I ____ rich, I would travel the world.''', 'were'),
+(1, 'Complete a frase: ''I have never ____ to Japan.''', 'gone'),
+(1, 'Qual a forma correta da sentença interrogativa: ''____ you ever been to London?''', 'Have'),
 
+(2, 'Qual é o sinônimo de ''happy''?', 'joyful'),
+(2, 'Complete a frase: ''The antonym of ''big'' is ____.''', 'small'),
+(2, 'Qual é o significado da palavra ''frequent''?', 'often'),
+(2, 'Complete a frase: ''She is very ____ and always helps others.''', 'kind'),
+(2, 'Qual é o contrário de ''begin''?', 'end'),
 
-CREATE TABLE Progresso_Aprendizado (
-    id_progresso INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    id_conteudo INT,
-    status VARCHAR(20) NOT NULL,
-    data_inicio DATE,
-    data_conclusao DATE,
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario),
-    FOREIGN KEY (id_conteudo) REFERENCES Conteudos(id_conteudo),
-    CONSTRAINT chk_status CHECK (status IN ('não iniciado', 'em progresso', 'concluído'))
-);
+(3, 'Leia a frase e responda: ''Jane went to the market and bought apples and oranges. What did Jane buy?''', 'Maçãs e Laranjas'),
+(3, 'Leia o parágrafo e responda: ''Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.'' Quem é Max?', 'Cachorro do Tom'),
+(3, 'Leia a frase e responda: ''Sarah loves to read books. She goes to the library every weekend.'' Onde Sarah vai todo fim de semana?', 'A biblioteca'),
+(3, 'Leia o parágrafo e responda: ''The sun is shining and the sky is clear. It is a perfect day for a picnic.'' Como está o clima?', 'Sunny'),
+(3, 'Leia a frase e responda: ''Mark works as a doctor. He loves helping people and making them feel better.'' Qual é a profissão de Mark?', 'Médico');
 
+-- Inserir respostas para cada pergunta
+INSERT INTO respostas (pergunta_id, resposta) VALUES 
+(1, 'go'), (1, 'went'), (1, 'goes'), (1, 'gone'),
+(2, 'is'), (2, 'were'), (2, 'was'), (2, 'are'),
+(3, 'am'), (3, 'was'), (3, 'were'), (3, 'be'),
+(4, 'go'), (4, 'went'), (4, 'gone'), (4, 'going'),
+(5, 'Has'), (5, 'Had'), (5, 'Have'), (5, 'Did'),
 
-CREATE TABLE Simulacoes (
-    id_simulacao INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    data_simulacao DATE NOT NULL,
-    resultado VARCHAR(100) NOT NULL,
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
-);
+(6, 'sad'), (6, 'joyful'), (6, 'angry'), (6, 'tired'),
+(7, 'large'), (7, 'small'), (7, 'huge'), (7, 'tall'),
+(8, 'rare'), (8, 'often'), (8, 'never'), (8, 'sometimes'),
+(9, 'mean'), (9, 'kind'), (9, 'selfish'), (9, 'rude'),
+(10, 'start'), (10, 'end'), (10, 'continue'), (10, 'open'),
 
-
-CREATE TABLE Perguntas (
-    id_pergunta INT AUTO_INCREMENT PRIMARY KEY,
-    texto_pergunta TEXT NOT NULL,
-    resposta_correta VARCHAR(100) NOT NULL
-);
-
-
-CREATE TABLE Respostas (
-    id_resposta INT AUTO_INCREMENT PRIMARY KEY,
-    id_usuario INT,
-    id_pergunta INT,
-    resposta_usuario VARCHAR(100) NOT NULL,
-    correta BOOLEAN NOT NULL,
-    data_resposta TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario),
-    FOREIGN KEY (id_pergunta) REFERENCES Perguntas(id_pergunta)
-);
+(11, 'Maçãs e Bananas'), (11, 'Laranjas e Bananas'), (11, 'Maçãs e Laranjas'), (11, 'Bananas e Uvas'),
+(12, 'Amigo do Tom'), (12, 'Irmão do Tom'), (12, 'Cachorro do Tom'), (12, 'Papagaio do Tom'),
+(13, 'Ao parque'), (13, 'A biblioteca'), (13, 'A uma loja'), (13, 'A academia'),
+(14, 'Rainy'), (14, 'Snowy'), (14, 'Sunny'), (14, 'Cloudy'),
+(15, 'Professor'), (15, 'Médico'), (15, 'Engenheiro'), (15, 'Piloto');

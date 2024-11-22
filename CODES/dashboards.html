@@ -8,28 +8,135 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <style>
+        header {
+            background-color: #0044cc; /* Azul da paleta oficial */
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+    
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+    </style>
+    
     <header>
         <h1>Dashboard de Desempenho</h1>
     </header>
     <main>
+        
         <section class="dashboard-container">
             <!-- Categoria mais selecionadas para perguntas -->
-            <div class="chart-card">
+            <div class="chart-card" id="left-chart">
                 <h2>Categoria Mais Selecionada</h2>
                 <canvas id="categoriaMaisSelecionada"></canvas>
             </div>
             <!-- Pergunta que teve mais erros de acordo com a categoria -->
-            <div class="chart-card">
+            <div class="chart-card" id="center-chart">
                 <h2>Pergunta com Mais Erros</h2>
                 <canvas id="perguntaMaisErros"></canvas>
             </div>
             <!-- Respostas certas e erradas do usuário -->
-            <div class="chart-card">
+            <div class="chart-card" id="right-chart">
                 <h2>Respostas Certas e Erradas</h2>
                 <canvas id="respostasCertasErradas"></canvas>
             </div>
         </section>
     </main>
-    <script src="script.js"></script>
+    <script>
+
+    document.addEventListener('keydown', function(event) {
+        if (event.altKey && event.key === 'i') {
+            window.location.href = 'index.html'; // Atalho para a página de Início
+        } else if (event.altKey && event.key === 'l') {
+            window.location.href = 'login.html'; // Atalho para a página de Login
+        } else if (event.altKey && event.key === 'c') {
+            window.location.href = 'cadastro.html'; // Atalho para a página de Cadastro
+        }
+    });
+
+
+
+        // Dados de exemplo
+        const categoriaMaisSelecionadaData = {
+            labels: ['Gramática', 'Vocabulário', 'Leitura', 'Expressões Idiomáticas'],
+            datasets: [{
+                label: 'Categorias',
+                data: [10, 15, 8, 12], // Dados de exemplo
+                backgroundColor: ['#0044cc', '#cc0000', '#ffcccb', '#cce5ff']
+            }]
+        };
+
+        const perguntaMaisErrosData = {
+            labels: [
+                'Pergunta 1', 'Pergunta 2', 'Pergunta 3', 'Pergunta 4', 'Pergunta 5'
+            ],
+            datasets: [{
+                label: 'Erros',
+                data: [3, 5, 2, 8, 6], // Dados de exemplo
+                backgroundColor: 'rgba(255,99,132,0.2)',
+                borderColor: '#cc0000',
+                borderWidth: 1
+            }]
+        };
+
+        const respostasCertasErradasData = {
+            labels: ['Certas', 'Erradas'],
+            datasets: [{
+                label: 'Respostas',
+                data: [30, 10], // Dados de exemplo
+                backgroundColor: ['#0044cc', '#cc0000']
+            }]
+        };
+
+        // Configurações dos gráficos
+        const categoriaMaisSelecionadaConfig = {
+            type: 'bar',
+            data: categoriaMaisSelecionadaData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const perguntaMaisErrosConfig = {
+            type: 'line',
+            data: perguntaMaisErrosData,
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        };
+
+        const respostasCertasErradasConfig = {
+            type: 'pie',
+            data: respostasCertasErradasData,
+            options: {
+                responsive: true
+            }
+        };
+
+        // Renderização dos gráficos
+        window.onload = function() {
+            const categoriaMaisSelecionadaCtx = document.getElementById('categoriaMaisSelecionada').getContext('2d');
+            new Chart(categoriaMaisSelecionadaCtx, categoriaMaisSelecionadaConfig);
+
+            const perguntaMaisErrosCtx = document.getElementById('perguntaMaisErros').getContext('2d');
+            new Chart(perguntaMaisErrosCtx, perguntaMaisErrosConfig);
+
+            const respostasCertasErradasCtx = document.getElementById('respostasCertasErradas').getContext('2d');
+            new Chart(respostasCertasErradasCtx, respostasCertasErradasConfig);
+        };
+    </script>
 </body>
 </html>
