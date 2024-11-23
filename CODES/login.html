@@ -12,86 +12,542 @@
 </head>
 
 <body>
+
+    <style>
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Caixa de entrada */
+        .input-box input {
+            width: calc(100% - 40px);
+            /* Ajuste para o ícone não sobrepor o texto */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--white-color);
+            /* Torna o texto branco ao passar o mouse */
+        }
+
+        /* Fundo das páginas */
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--light-gray-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--white-color);
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .input-box i {
+            width: 40px;
+            text-align: center;
+            color: var(--dark-gray-color);
+        }
+
+        /* Centralizando elementos */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--white-color);
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover,
+        .forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cover .front,
+        .cover .back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .forms .form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .input-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-box {
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+            /* Necessário para ícones absolutos */
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            /* Espaço para o ícone */
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray-color);
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--white-color);
+            /* Torna o texto branco ao passar o mouse */
+        }
+
+        /* Fundo das páginas */
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--light-gray-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        header {
+            background: #0044cc;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Caixa de entrada */
+        .input-box input {
+            width: calc(100% - 40px);
+            /* Ajuste para o ícone não sobrepor o texto */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Fundo das páginas */
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--light-gray-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--white-color);
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .input-box i {
+            width: 40px;
+            text-align: center;
+            color: var(--dark-gray-color);
+        }
+
+        /* Centralizando elementos */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            max-width: 900px;
+            margin: auto;
+            background-color: var(--white-color);
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .cover,
+        .forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cover .front,
+        .cover .back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .forms .form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .input-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-box {
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+            /* Necessário para ícones absolutos */
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            /* Espaço para o ícone */
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray-color);
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Fundo das páginas */
+        body {
+            font-family: "Poppins", sans-serif;
+            background-color: var(--light-gray-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        header {
+            background: #0044cc;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        /* Estilo para nav-menu */
+.nav-menu .nav-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    z-index: 1; /* Garante que o texto fique acima do fundo */
+}
+
+.nav-menu .nav-link:hover {
+    color: var(--white-color); /* Torna o texto branco ao passar o mouse */
+    background-color: var(--secondary-color); /* Fundo vermelho */
+    z-index: 2; /* Garante que o fundo vermelho fique abaixo do texto */
+}
+
+        
+    </style>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Meu Mundo em Inglês</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+            </ul>
+
+        </nav>
+    </header>
     <div class="container">
         <input type="checkbox" id="flip">
         <div class="cover">
             <div class="front">
                 <img src="imgs/caderno-login.jpg" alt="">
-                <div class="text">
-                    <span class="text-1"> PRATIQUE SEU INGLÊS! <span>FAÇA LOGIN E DESCUBRA COMO!</span>
-                        <!-- <span class="text-2">Vamos nos conectar</span> -->
-                </div>
+
             </div>
             <div class="back">
                 <img class="backImg" src="imgs/caderno-login.jpg" alt="">
-                <div class="text">
-                    <span class="text-1">NÃO PERCA TEMPO! <span>CADASTRE-SE E ALCANCE A FLUÊNCIA!</span>
-                        <!-- <span class="text-2"></span> -->
-                </div>
+
             </div>
         </div>
         <div class="forms">
-            <div class="form-content">
-                <div class="login-form">
-                    <div class="title">Entrar</div>
-                    <form action="#">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Digite seu email" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input type="password" placeholder="Digite sua senha" required>
-                            </div>
-                            <div class="text"><a href="#">Esqueceu a senha?</a></div>
-                            <div class="button input-box">
-                                <input type="submit" value="Enviar">
-                            </div>
-                            <div class="text sign-up-text">Não tem uma conta? <label for="flip">Cadastre-se agora</label></div>
-                        </div>
-                    </form>
+            <div class="form-content login-form">
+                <div class="text">
+                    <span class="text-1"> PRATIQUE SEU INGLÊS! <span>FAÇA LOGIN E VAMOS JUNTO!<br></span></span>
                 </div>
-                <div class="signup-form">
-                    <div class="title">Cadastrar</div>
-                    <form action="#">
-                        <div class="input-boxes">
-                            <div class="input-box">
-                                <i class="fas fa-user"></i>
-                                <input type="text" placeholder="Digite seu nome" required>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-id-card"></i>
-                                <input id="cpf_input" type="number" placeholder="Digite seu CPF" onkeyup="validarCPF()" />
-                                <div id="validacaoCPF"></div><br>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-envelope"></i>
-                                <input type="text" placeholder="Digite seu email" required>
-                            </div>
-                            <div class="input-box">
-                               <i class="fas fa-phone"></i>
-                                <input id="telefone_input" type="text" placeholder="Digite seu telefone" onkeyup="validarTelefone()" />
-                                <div id="validacaoTelefone"></div><br>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <!-- <button class="botaozinho" onclick="gerarSenha()">Gerar Senha</button> -->
-                                <input type="password" placeholder="Digite sua senha" onkeyup="validarSenha()" required>
-                                <div id="validacaoSenha"></div><br>
-                            </div>
-                            <div class="input-box">
-                                <i class="fas fa-lock"></i>
-                                <input id="confirmacao_senha_input" type="password" placeholder="Confirmar Senha" onkeyup="confirmacaoSenha()" />
-                                <div id="validacaoConfirmacao"></div><br>
-                            </div>
+                <form action="#">
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder=" Digite seu email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="  Digite sua senha" required>
                         </div>
                         <div class="button input-box">
-                            <input type="submit" onclick="Validacao()" value="Enviar">
+                            <input type="submit" value="Enviar">
                         </div>
-                        <div class="text sign-up-text">Já tem uma conta? <label for="flip">Entrar agora</label></div>
-                    </form>
+                        <div class="text sign-up-text">Não tem uma conta? <label for="flip">Cadastre-se agora</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form-content signup-form">
+                <div class="text">
+                    <span class="text-1"><br> NÃO PERCA TEMPO! <span>CADASTRE-SE E ALCANCE A FLUÊNCIA!<br></span></span>
                 </div>
+                <form action="#">
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder=" Digite seu nome" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder=" Digite seu email" required>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="   Digite sua senha" onkeyup="validarSenha()" required>
+                            <div id="validacaoSenha"></div><br>
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input id="confirmacao_senha_input" type="password" placeholder="   Confirmar Senha"
+                                onkeyup="confirmacaoSenha()" />
+                            <div id="validacaoConfirmacao"></div><br>
+                        </div>
+                    </div>
+                    <div class="button input-box">
+                        <input type="submit" onclick="Validacao()" value="Enviar">
+                    </div>
+                    <div class="text sign-up-text">Já tem uma conta? <label for="flip">Entrar agora</label></div>
+                </form>
             </div>
         </div>
     </div>

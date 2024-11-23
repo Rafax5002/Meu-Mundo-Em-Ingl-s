@@ -41,7 +41,7 @@
 
 /* Reset e Estilos Globais */
 * {
-    margin: 0;
+    margin: auto;
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -183,6 +183,7 @@ section .section-title {
     padding: 60px 0 100px;
     text-transform: uppercase;
     font-size: var(--font-size-xl);
+    color: black;
 }
 
 section .section-title::after {
@@ -248,6 +249,7 @@ header .navbar {
     display: flex;
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center; /* Centraliza o conteúdo verticalmente */
+    width: 1400px;
 }
 
 /* Ajustes no conteúdo da hero */
@@ -481,7 +483,7 @@ header .navbar {
 
 /* Rodapé */
 .footer-section {
-    padding: 20px 0;
+    padding: 20px 0px;
     background: var(--primary-color);
 }
 
@@ -633,7 +635,7 @@ header .navbar {
 
 /* Efeito de sublinhado e margem vermelha ao passar o mouse */
 .navbar .nav-menu .nav-link:hover {
-    color: var(--secondary-color); /* Muda a cor do texto ao passar o mouse */
+    color: white; /* Muda a cor do texto ao passar o mouse */
 }
 
 .navbar .nav-menu .nav-link:hover::after {
@@ -739,4 +741,136 @@ canvas {
     #right-chart {
         margin: 20px;
     }
+}
+/* CSS para a animação de transição entre login e cadastro */
+#flip:checked ~ .cover {
+    transform: translateX(-50%);
+    transition: transform 0.8s;
+}
+
+#flip:checked ~ .forms .login-form {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 0.8s ease-in-out;
+}
+
+#flip:checked ~ .forms .signup-form {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+    transition: all 0.8s ease-in-out;
+}
+
+.forms .login-form, .forms .signup-form {
+    position: absolute;
+    width: 100%;
+    transition: all 0.8s ease-in-out;
+}
+
+.forms .login-form {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+.forms .signup-form {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(100%);
+}
+
+/* Centralizando elementos */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 7000px; /* Ajuste para controlar o tamanho da página */
+    margin: auto;
+}
+
+.cover, .forms {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.cover .front, .cover .back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.forms .form-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.input-boxes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-box {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.input-box input {
+    width: calc(100% - 40px); /* Ajuste para o ícone não sobrepor o texto */
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.input-box i {
+    width: 40px;
+    text-align: center;
+    color: #666;
+}
+
+.button input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #8c7853;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button input[type="submit"]:hover {
+    background-color: #bf9710;
+}
+
+/* Ajustes adicionais */
+.text a, .text label {
+    color: #8c7853;
+    text-decoration: none;
+}
+
+.text a:hover, .text label:hover {
+    color: #bf9710;
+}
+
+.forms .text {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.cover img {
+    max-width: 100%;
+    height: auto;
 }

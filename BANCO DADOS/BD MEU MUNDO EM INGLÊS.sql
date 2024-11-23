@@ -2,7 +2,6 @@ CREATE DATABASE MeuMundoEmIngles;
 
 USE MeuMundoEmIngles;
 
-
 -- Criar tabela de usuários
 CREATE TABLE usuarios (
     id INT PRIMARY KEY AUTO_INCREMENT,
@@ -23,7 +22,7 @@ CREATE TABLE perguntas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     categoria_id INT,
     pergunta TEXT NOT NULL,
-    resposta_correta VARCHAR(50) NOT NULL,
+    resposta_correta VARCHAR(255) NOT NULL,
     FOREIGN KEY (categoria_id) REFERENCES categorias(id)
 );
 
@@ -31,35 +30,42 @@ CREATE TABLE perguntas (
 CREATE TABLE respostas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     pergunta_id INT,
-    resposta TEXT NOT NULL,
+    resposta VARCHAR(255) NOT NULL,
     FOREIGN KEY (pergunta_id) REFERENCES perguntas(id)
 );
 
 -- Inserir categorias
-INSERT INTO categorias (nome) VALUES ('Gramática');
-INSERT INTO categorias (nome) VALUES ('Vocabulário');
-INSERT INTO categorias (nome) VALUES ('Leitura');
-INSERT INTO categorias (nome) VALUES ('Expressões Idiomáticas');
+INSERT INTO categorias (nome) VALUES 
+('Gramática'), 
+('Vocabulário'), 
+('Leitura'), 
+('Expressões Idiomáticas');
 
--- Inserir perguntas
+-- Inserir perguntas e respostas corretas
 INSERT INTO perguntas (categoria_id, pergunta, resposta_correta) VALUES 
-(1, 'Qual é a forma correta do verbo no passado: ''She ____ to the store yesterday''?', 'went'),
-(1, 'Complete a frase: ''They ____ playing soccer when it started to rain.''', 'were'),
-(1, 'Qual a forma correta do verbo na frase: ''If I ____ rich, I would travel the world.''', 'were'),
-(1, 'Complete a frase: ''I have never ____ to Japan.''', 'gone'),
-(1, 'Qual a forma correta da sentença interrogativa: ''____ you ever been to London?''', 'Have'),
+(1, "Qual é a forma correta do verbo no passado: 'She ____ to the store yesterday'?", 'went'),
+(1, "Complete a frase: 'They ____ playing soccer when it started to rain.'", 'were'),
+(1, "Qual a forma correta do verbo na frase: 'If I ____ rich, I would travel the world.'", 'were'),
+(1, "Complete a frase: 'I have never ____ to Japan.'", 'gone'),
+(1, "Qual a forma correta da sentença interrogativa: '____ you ever been to London?'", 'Have'),
 
-(2, 'Qual é o sinônimo de ''happy''?', 'joyful'),
-(2, 'Complete a frase: ''The antonym of ''big'' is ____.''', 'small'),
-(2, 'Qual é o significado da palavra ''frequent''?', 'often'),
-(2, 'Complete a frase: ''She is very ____ and always helps others.''', 'kind'),
-(2, 'Qual é o contrário de ''begin''?', 'end'),
+(2, "Qual é o sinônimo de 'happy'?", 'joyful'),
+(2, "Complete a frase: 'The antonym of 'big' is ____.'", 'small'),
+(2, "Qual é um sinônimo da palavra 'frequent'?", 'often'),
+(2, "Complete a frase: 'She is very ____ and always helps others.'", 'kind'),
+(2, "Qual é o contrário de 'begin'?", 'end'),
 
-(3, 'Leia a frase e responda: ''Jane went to the market and bought apples and oranges. What did Jane buy?''', 'Maçãs e Laranjas'),
-(3, 'Leia o parágrafo e responda: ''Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.'' Quem é Max?', 'Cachorro do Tom'),
-(3, 'Leia a frase e responda: ''Sarah loves to read books. She goes to the library every weekend.'' Onde Sarah vai todo fim de semana?', 'A biblioteca'),
-(3, 'Leia o parágrafo e responda: ''The sun is shining and the sky is clear. It is a perfect day for a picnic.'' Como está o clima?', 'Sunny'),
-(3, 'Leia a frase e responda: ''Mark works as a doctor. He loves helping people and making them feel better.'' Qual é a profissão de Mark?', 'Médico');
+(3, "Leia a frase e responda: 'Jane went to the market and bought apples and oranges. What did Jane buy?'", 'Maçãs e Laranjas'),
+(3, "Leia o parágrafo e responda: 'Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.' Quem é Max?", 'Cachorro do Tom'),
+(3, "Leia a frase e responda: 'Sarah loves to read books. She goes to the library every weekend.' Onde Sarah vai todo fim de semana?", 'A biblioteca'),
+(3, "Leia o parágrafo e responda: 'The sun is shining and the sky is clear. It is a perfect day for a picnic.' Como está o clima?", 'Sunny'),
+(3, "Leia a frase e responda: 'Mark works as a doctor. He loves helping people and making them feel better.' Qual é a profissão de Mark?", 'Médico'),
+
+(4, "O que significa a expressão idiomática 'Break the ice'?", 'Iniciar uma conversa em uma situação desconfortável'),
+(4, "Qual é o significado da expressão 'Hit the books'?", 'Começar a estudar seriamente'),
+(4, "O que significa a expressão 'Let the cat out of the bag'?", 'Revelar um segredo acidentalmente'),
+(4, "Qual é o significado da expressão 'Bite the bullet'?", 'Enfrentar uma situação difícil com coragem'),
+(4, "O que significa a expressão 'Spill the beans'?", 'Confessar ou revelar um segredo');
 
 -- Inserir respostas para cada pergunta
 INSERT INTO respostas (pergunta_id, resposta) VALUES 
@@ -79,4 +85,10 @@ INSERT INTO respostas (pergunta_id, resposta) VALUES
 (12, 'Amigo do Tom'), (12, 'Irmão do Tom'), (12, 'Cachorro do Tom'), (12, 'Papagaio do Tom'),
 (13, 'Ao parque'), (13, 'A biblioteca'), (13, 'A uma loja'), (13, 'A academia'),
 (14, 'Rainy'), (14, 'Snowy'), (14, 'Sunny'), (14, 'Cloudy'),
-(15, 'Professor'), (15, 'Médico'), (15, 'Engenheiro'), (15, 'Piloto');
+(15, 'Professor'), (15, 'Médico'), (15, 'Engenheiro'), (15, 'Piloto'),
+
+(16, 'Quebrar o gelo literal'), (16, 'Iniciar uma conversa em uma situação desconfortável'), (16, 'Ficar nervoso'), (16, 'Refrigerar algo'),
+(17, 'Acertar os livros fisicamente'), (17, 'Ler casualmente'), (17, 'Começar a estudar seriamente'), (17, 'Arrumar a estante de livros'),
+(18, 'Deixar o gato sair da bolsa'), (18, 'Revelar um segredo acidentalmente'), (18, 'Cuidar de um animal de estimação'), (18, 'Ser cauteloso'),
+(19, 'Morder uma bala de verdade'), (19, 'Enfrentar uma situação difícil com coragem'), (19, 'Fugir de um problema'), (19, 'Tomar uma decisão impulsiva'),
+(20, 'Derramar feijões literal'), (20, 'Confessar ou revelar um segredo'), (20, 'Cozinhar algo'), (20, 'Guardar um segredo');

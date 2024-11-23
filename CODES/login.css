@@ -387,3 +387,36 @@ height: 800px;
     color: #fff;
     margin: 0 5px;
   }
+  
+  
+  /* CSS para a animação de transição entre login e cadastro */
+#flip:checked ~ .cover {
+    transform: translateX(-50%);
+    transition: transform 0.8s;
+}
+
+#flip:checked ~ .forms .login-form {
+    left: -100%;
+    transition: all 0.8s ease-in-out;
+}
+
+#flip:checked ~ .forms .signup-form {
+    left: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.forms .form-content {
+    position: absolute;
+    width: 50%;
+    padding: 20px;
+}
+
+.login-form {
+    left: 0;
+    transition: all 0.8s ease-in-out;
+}
+
+.signup-form {
+    left: 100%;
+    transition: all 0.8s ease-in-out;
+}

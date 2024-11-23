@@ -20,7 +20,17 @@
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
+    position: absolute;
 }
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 1rem;
+    background: #0044cc;
+    color: #fff;
+    font-size: 0.875rem;
+}
+
 </style>
 
 <body>
@@ -29,12 +39,12 @@
         <nav class="navbar">
             <a href="#" class="nav-logo">Meu Mundo em Inglês</a>
             <ul class="nav-menu">
-                <button id="menu-close-button" class="fas fa-times"></button>
+               
                 <li class="nav-item">
                     <a href="#" class="nav-link">Início</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#about" class="nav-link">Sobre Mim</a>
+                    <a href="#about" class="nav-link">Sobre</a>
                 </li>
                 <li class="nav-item">
                     <a href="login.html" class="nav-link">Login</a>
@@ -43,7 +53,7 @@
                     <a href="login.html" class="nav-link">Cadastro</a>
                 </li>
             </ul>
-            <button id="menu-open-button" class="fas fa-bars"></button>
+           
         </nav>
     </header>
 
@@ -52,13 +62,13 @@
         <section class="hero-section" id="section-image">
             <div class="bloco">
                 <div class="section-content">
-                    <div class="hero-details">
-                        <h3 class="subtitle"> QUER MELHORAR SEU INGLÊS? <span>FAÇA LOGIN E DESCUBRA COMO!</span> </h3>
-                        <br>
-                    </div>
-                </div> <!-- Adicionando imagem de fundo --> <img src="imgs/english.jpg" alt="Imagem de fundo"
+                        <h3 class="section-title"> QUER MELHORAR SEU INGLÊS? <span>VENHA COMIGO E DESCUBRA!</span> </h3>
+                         <img src="imgs/english.jpg" alt="Imagem de fundo"
                     class="background-image">
             </div>
+                        <br>
+                    </div>
+                </div> <!-- Adicionando imagem de fundo --> 
 
             <!-- bloco do quiz -->
             <section class="about-section" id="quiz">
@@ -164,58 +174,11 @@
                         </li>
                     </ul>
                 </div>
-                <!--bloco de contate-nos-->
-                <section class="contact-section" id="contact">
-                    <h2 class="section-title">Contato</h2>
-                    <div class="section-content">
-                        <ul class="contact-info-list">
-                            <li class="contact-info">
-                                <i class="fa-solid fa-location-crosshairs"></i>
-                                <p>Rua Haddock Lobo, 595 - Cerqueira César, São Paulo - SP</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-regular fa-envelope"></i>
-                                <p>contato@meumundoemingles.com.br</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-solid fa-phone"></i>
-                                <p>(11) 99999-9999</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-regular fa-clock"></i>
-                                <p>Segunda - Sexta: 10h15 - 16h15</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-regular fa-clock"></i>
-                                <p>Sábado: 10:00 - 14:00</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-regular fa-clock"></i>
-                                <p>Domingo: Fechado</p>
-                            </li>
-                            <li class="contact-info">
-                                <i class="fa-solid fa-globe"></i>
-                                <p>www.meumundoemingles.com.br</p>
-                            </li>
-                        </ul>
-                        <form action="#" class="contact-form">
-                            <input type="text" placeholder="Seu nome" class="form-input" required />
-                            <input type="email" placeholder="Seu email" class="form-input" required />
-                            <textarea placeholder="Sua mensagem" class="form-input" required></textarea>
-                            <button type="submit" class="button submit-button">Enviar</button>
-                        </form>
-                    </div>
-                </section>
+               
                 <!-- Footer section -->
-                <footer class="footer-section">
+                <footer class="footer">
                     <div class="section-content">
                         <p class="copyright-text">© 2024 Meu Mundo em Inglês</em></p>
-                        <div class="social-link-list">
-                            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                        </div>
-
                     </div>
                 </footer>
     </main>

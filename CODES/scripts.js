@@ -142,4 +142,4 @@ document.addEventListener('DOMContentLoaded', () => {
         options: { responsive: true }
     });
 });
-// Dados das perguntas e respostas
+
