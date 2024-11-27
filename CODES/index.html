@@ -23,12 +23,233 @@
     position: absolute;
 }
 footer {
-    margin-top: auto;
+    margin-top: 100px;
     text-align: center;
     padding: 1rem;
     background: #0044cc;
     color: #fff;
     font-size: 0.875rem;
+}
+.footer-section {
+    background: var(--dark-color);
+    padding: 20px 0;
+    color: var(--white-color);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-section .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social .social-link {
+    color: var(--white-color);
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: var(--light-blue-color); /* Caixa azul */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Certifica-se de que a imagem é um bloco */
+    margin: auto; /* Centraliza a imagem horizontalmente */
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do contêiner */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px; /* Altura fixa para a caixa azul */
+    background-color: var(--light-blue-color); /* Caixa azul */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%; /* Limita a altura máxima da imagem para se ajustar à caixa */
+    height: auto;
+    display: block; /* Certifica-se de que a imagem é um bloco */
+    margin: auto; /* Centraliza a imagem horizontalmente */
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray-color);
+    padding: 50px 20px;
+    position: relative; /* Necessário para ajuste de posição */
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px; /* Ajuste a margem negativa conforme necessário */
+}
+
+.about-image-wrapper {
+    margin-right: 20px;
+}
+
+.about-details {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-details .section-title {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+
+.test-section p {
+    color: var(--dark-gray-color);
+    margin: 20px 0;
+}
+
+.test-section .nav-item {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-section .nav-item:hover {
+    background-color: var(--button-hover-color);
+}
+/* About Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray-color);
+    padding: 50px 20px;
+    position: relative; /* Necessário para ajuste de posição */
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: row; /* Alinha horizontalmente a imagem e o texto */
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+}
+
+.about-image-wrapper {
+    margin-right: 20px; /* Espaço entre a imagem e o texto */
+    flex-shrink: 0; /* Previne que a imagem diminua em tamanho */
+}
+
+.about-details {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-details .section-title {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+
+.test-section p {
+    color: var(--dark-gray-color);
+    margin: 20px 0;
+}
+
+.test-section .nav-item {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-section .nav-item:hover {
+    background-color: var(--button-hover-color);
 }
 
 </style>
@@ -68,19 +289,18 @@ footer {
             </div>
                         <br>
                     </div>
-                </div> <!-- Adicionando imagem de fundo --> 
+                </div>  
 
             <!-- bloco do quiz -->
             <section class="about-section" id="quiz">
-                <div class="section-content">
+                <div class="quiz">
                     <div class="about-image-wrapper">
                         <img src="imgs/quiz.png" alt="Quiz Interativo" style="width: 500px;" />
                     </div>
                     <div class="about-details">
                         <h1 class="section-title">Teste seu Inglês com Nosso Quiz Interativo!</h1>
                         <div class="test-section">
-                            <p>Responda a algumas perguntas para avaliar seu nível de inglês.</p>
-                            <button onclick="location.href='quiz.html'" class="button contact-us">Iniciar Quiz</button>
+                            <p>Responda algumas perguntas e veja quantas consegue acertar!</p>
                         </div>
 
                     </div>
@@ -106,9 +326,9 @@ footer {
                             <img src="imgs/conversacao.png" alt="Prática de Conversação" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Quiz Interativo</h3>
-                                <p class="text">Teste seus conhecientos em diversos conteúdos de inglês com um Quiz
+                                <p class="text">Teste seus conhecientos em diversas áreas de inglês com um Quiz
                                     feito
-                                    especialmente para prática da língua.</p>
+                                    especialmente para praticar diversos usos da língua inglesa.</p>
                             </div>
                         </li>
                         <li class="menu-item">
@@ -135,11 +355,6 @@ footer {
                             Inglesa.
                             Certificado Cambridge na modalidade B2 via FCE, cursei CNA entre os anos de 2014 até 2022.
                         </p>
-                        <div class="social-link-list">
-                            <a href="#" class="social-link"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="#" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -153,7 +368,7 @@ footer {
                             <img src="imgs/valores.png" alt="Valores" class="menu-image" />
                             <div class="menu-details">
                                 <h3 class="name">Valores</h3>
-                                <p class="text">Valorizo uma educação de qualidade, com engajamento do estudante.</p>
+                                <p class="text">Valorizo uma educação de qualidade, com engajamento do usuário, e determinação para atingir seu potencial no aprendizado da língua.</p>
                             </div>
                         </li>
                         <li class="menu-item">
@@ -169,18 +384,18 @@ footer {
                             <div class="menu-details">
                                 <h3 class="name">Visão</h3>
                                 <p class="text">Ser uma mão amiga para qualquer usuário que tenha o objetivo de
-                                    aperfeiçoar seu inglês.</p>
+                                    aperfeiçoar seu inglês oferecendo apoio na prática da língua.</p>
                             </div>
                         </li>
                     </ul>
                 </div>
                
                 <!-- Footer section -->
-                <footer class="footer">
-                    <div class="section-content">
-                        <p class="copyright-text">© 2024 Meu Mundo em Inglês</em></p>
-                    </div>
-                </footer>
+               
+    <footer>
+        <p>&copy; 2024 Meu Mundo em Inglês. Todos os direitos reservados.</p>
+    </footer>
+
     </main>
 </body>
 

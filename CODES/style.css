@@ -241,6 +241,7 @@ header .navbar {
   overflow: hidden; /* Para garantir que a imagem não ultrapasse os limites da seção */
 }
 
+
 .hero-section .background-image {
     background-image: url('sua-imagem.jpg'); /* Substitua pelo caminho da sua imagem */
     background-size: cover; /* Faz a imagem cobrir toda a área */
@@ -259,7 +260,7 @@ header .navbar {
   padding-top: 90px;
   padding-left: 40px;
   align-items: center;
-  min-height: 96vh;
+  min-height: 46vh;
   justify-content: space-between;
   color: var(--white-color); /* Ajustando a cor do texto para branco */
 }
@@ -309,7 +310,7 @@ header .navbar {
 .menu-section {
     color: var(--black-color);
     background: var(--light-blue-color);
-    padding: 50px 0 100px;
+    padding: 50px 0 1px;
 }
 
 .menu-section .menu-list {

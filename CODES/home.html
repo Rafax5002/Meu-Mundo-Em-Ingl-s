@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <!-- Cabeçalho / Navbar -->
+    <header>
+        <nav class="navbar">
+            <a class="nav-logo">Meu Mundo em Inglês</a>
+            <ul class="nav-menu">
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+                <li><a href="dashboards.html" class="nav-link">Dashboards</a></li>
+                <li><a href="#" class="nav-link" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="main-content">
+        <section class="section" id="welcome-section">
+            <h1 class="section-title"><br>Bem-vindo(a) ao Meu Mundo em Inglês!</h1>
+            <p>Aqui você pode testar seus conhecimentos e acompanhar seu progresso no aprendizado de inglês.</p>
+        </section>
+
+        <section class="section" id="quiz-section">
+            <h2 class="section-title">Teste seu Inglês</h2>
+            <p>Acesse nosso quiz interativo para avaliar seu nível de inglês.</p>
+            <a href="quiz.html" class="button">Iniciar Quiz</a>
+        </section>
+
+        <section class="section" id="dashboards-section">
+            <h2 class="section-title">Seus Dashboards</h2>
+            <p>Acompanhe seu progresso com nossos dashboards personalizados.</p>
+            <a href="dashboards.html" class="button">Ver Dashboards</a>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Meu Mundo em Inglês. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Função de logout
+        function logout() {
+            // Limpar informações de sessão
+            localStorage.removeItem('usuarioLogado');
+            // Redirecionar para a página de login
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
+
+<style>
+
+:root {
+    --primary-color: #0044cc; /* Azul primário */
+    --button-hover-color: #002a80; /* Cor ao passar o mouse */
+    --white-color: #ffffff; /* Branco */
+}
+
+/* Estilo para botões */
+.button,
+.toggle-password-button {
+    background-color: var(--primary-color); /* Azul primário */
+    color: var(--white-color); /* Texto branco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Para links estilizados como botões */
+    display: inline-block; /* Garante que os botões sejam exibidos corretamente */
+    margin-top: 10px; /* Espaçamento superior */
+}
+
+.button:hover,
+.toggle-password-button:hover {
+    background-color: var(--button-hover-color); /* Cor ao passar o mouse */
+}
+
+/* Ajustes específicos para a página inicial pós-login */
+.main-content .button {
+    margin-bottom: 20px; /* Espaçamento inferior para separar das seções */
+}
+/* Cabeçalho / Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    color: var(--white-color);
+    text-decoration: none;
+min-width: 45vh;
+display: contents;
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-left: 20px;
+}
+
+.nav-link {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: var(--light-gray-color);
+}
+
+.footer-content {
+    background: var(--dark-color);
+    padding: 20px 0;
+    color: var(--white-color);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social .social-link {
+    color: var(--white-color);
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+
+</style>
