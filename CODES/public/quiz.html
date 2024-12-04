@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Mundo em Inglês | Quiz</title>
+    <link rel="stylesheet" href="style-quiz.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="#" class="nav-logo">Meu Mundo em Inglês</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Início</a></li>
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="dashboards.html" class="nav-link">Dashboards</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-open-button">☰</button>
+            <button class="menu-toggle" id="menu-close-button">✖</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="quiz-section">
+            <h1 class="section-title">Teste Seu Inglês!</h1>
+            <div class="quiz-container">
+                <form id="quizForm">
+                    <div class="form-group">
+                        <label for="categoria">Selecione uma categoria:</label>
+                        <select id="categoria" required>
+                            <option value="">Selecione...</option>
+                            <option value="grammar">Gramática</option>
+                            <option value="vocabulary">Vocabulário</option>
+                            <option value="reading">Leitura</option>
+                            <option value="idioms">Expressões Idiomáticas</option>
+                        </select>
+                    </div>
+
+                    <div id="containerEnunciado" class="enunciados-container">
+                        <!-- Perguntas serão carregadas aqui -->
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" onclick="comecarQuiz()">Iniciar Quiz</button>
+                    </div>
+
+                </form>
+            </div>
+        </section>
+
+        <section class="results-section" id="results">
+            <div id="containerResultado" class="results-container">
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Meu Mundo em Inglês - Rafael Pires Dias da Silva - 1ADSA</p>
+    </footer>
+
+    <script>
+        const enunciados = {
+            grammar: [
+                { pergunta: "Qual é a forma correta do verbo no passado: 'She ____ to the store yesterday'?", respostasPossiveis: ["go", "went", "goes", "gone"], resposta: "went" },
+                { pergunta: "Complete a frase: 'They ____ playing soccer when it started to rain.'", respostasPossiveis: ["is", "were", "was", "are"], resposta: "were" },
+                { pergunta: "Qual a forma correta do verbo na frase: 'If I ____ rich, I would travel the world.'", respostasPossiveis: ["am", "was", "were", "be"], resposta: "were" },
+                { pergunta: "Complete a frase: 'I have never ____ to Japan.'", respostasPossiveis: ["go", "went", "gone", "going"], resposta: "gone" },
+                { pergunta: "Qual a forma correta da sentença interrogativa: '____ you ever been to London?'", respostasPossiveis: ["Has", "Had", "Have", "Did"], resposta: "Have" },
+            ],
+            vocabulary: [
+                { pergunta: "Qual é o sinônimo de 'happy'?", respostasPossiveis: ["sad", "joyful", "angry", "tired"], resposta: "joyful" },
+                { pergunta: "Complete a frase: 'The antonym of 'big' is ____.'", respostasPossiveis: ["large", "small", "huge", "tall"], resposta: "small" },
+                { pergunta: "Qual é um sinônimo da palavra 'frequent'?", respostasPossiveis: ["rare", "often", "never", "sometimes"], resposta: "often" },
+                { pergunta: "Complete a frase: 'She is very ____ and always helps others.'", respostasPossiveis: ["mean", "kind", "selfish", "rude"], resposta: "kind" },
+                { pergunta: "Qual é o contrário de 'begin'?", respostasPossiveis: ["start", "end", "continue", "open"], resposta: "end" },
+            ],
+            reading: [
+                { pergunta: "Leia a frase e responda: 'Jane went to the market and bought apples and oranges. What did Jane buy?'", respostasPossiveis: ["Maçãs e Bananas", "Laranjas e Bananas", "Maçãs e Laranjas", "Bananas e Uvas"], resposta: "Maçãs e Laranjas" },
+                { pergunta: "Leia o parágrafo e responda: 'Tom has a dog named Max. Every morning, Tom takes Max for a walk in the park.' Quem é Max?", respostasPossiveis: ["Amigo do Tom", "Irmão do Tom", "Cachorro do Tom", "Papagaio do Tom"], resposta: "Cachorro do Tom" },
+                { pergunta: "Leia a frase e responda: 'Sarah loves to read books. She goes to the library every weekend.' Onde Sarah vai todo fim de semana?", respostasPossiveis: ["Ao parque", "A biblioteca", "A uma loja", "A academia"], resposta: "A biblioteca" },
+                { pergunta: "Leia o parágrafo e responda: 'The sun is shining and the sky is clear. It is a perfect day for a picnic.' Como está o clima?", respostasPossiveis: ["Rainy", "Snowy", "Sunny", "Cloudy"], resposta: "Sunny" },
+                { pergunta: "Leia a frase e responda: 'Mark works as a doctor. He loves helping people and making them feel better.' Qual é a profissão de Mark?", respostasPossiveis: ["Professor", "Médico", "Engenheiro", "Piloto"], resposta: "Médico" },
+            ],
+            idioms: [
+                { pergunta: "O que significa a expressão idiomática 'Break the ice'?", respostasPossiveis: ["Quebrar o gelo literal", "Iniciar uma conversa em uma situação desconfortável", "Ficar nervoso", "Refrigerar algo"], resposta: "Iniciar uma conversa em uma situação desconfortável" },
+                { pergunta: "Qual é o significado da expressão 'Hit the books'?", respostasPossiveis: ["Acertar os livros fisicamente", "Ler casualmente", "Começar a estudar seriamente", "Arrumar a estante de livros"], resposta: "Começar a estudar seriamente" },
+                { pergunta: "O que significa a expressão 'Let the cat out of the bag'?", respostasPossiveis: ["Deixar o gato sair da bolsa", "Revelar um segredo acidentalmente", "Cuidar de um animal de estimação", "Ser cauteloso"], resposta: "Revelar um segredo acidentalmente" },
+                { pergunta: "Qual é o significado da expressão 'Bite the bullet'?", respostasPossiveis: ["Morder uma bala de verdade", "Enfrentar uma situação difícil com coragem", "Fugir de um problema", "Tomar uma decisão impulsiva"], resposta: "Enfrentar uma situação difícil com coragem" },
+                { pergunta: "O que significa a expressão 'Spill the beans'?", respostasPossiveis: ["Derramar feijões literal", "Confessar ou revelar um segredo", "Cozinhar algo", "Guardar um segredo"], resposta: "Confessar ou revelar um segredo" }
+            ]
+        };
+
+        // Função para iniciar o quiz
+        function comecarQuiz() {
+            const categoria = document.getElementById('categoria').value;
+            const enunciadosSelecionados = enunciados[categoria];
+            const containerEnunciado = document.getElementById('containerEnunciado');
+            containerEnunciado.innerHTML = '';
+
+            enunciadosSelecionados.forEach((q, index) => {
+                const divEnunciado = document.createElement('div');
+                divEnunciado.className = 'question';
+                divEnunciado.innerHTML = `
+                    <p>${index + 1}. ${q.pergunta}</p>
+                    ${q.respostasPossiveis.map((option, i) => `
+                        <div>
+                            <input type="radio" name="q${index}" id="q${index}o${i}" value="${option}">
+                            <label for="q${index}o${i}">${option}</label>
+                        </div>
+                    `).join('')}
+                `;
+                containerEnunciado.appendChild(divEnunciado);
+            });
+
+            const botaoEnvio = document.createElement('button');
+            botaoEnvio.innerText = 'Enviar Quiz';
+            botaoEnvio.onclick = submitQuiz;
+            containerEnunciado.appendChild(botaoEnvio);
+        }
+
+      
+        function submitQuiz(event) {
+
+
+
+            event.preventDefault()
+
+          
+            document.getElementById('quizForm').classList.add('hidden')
+
+            const categoria = document.getElementById('categoria').value
+            const enunciadosSelecionados = enunciados[categoria]
+
+            var pontuacao = 0
+            enunciadosSelecionados.forEach((q, index) => {
+                const userResposta = document.querySelector(`input[name="q${index}"]:checked`);
+                if (userResposta && userResposta.value == q.resposta
+                ) {
+                    pontuacao++
+                }
+            });
+
+            const containerResultado = document.getElementById('containerResultado');
+            containerResultado.innerHTML = `
+            Você acertou ${pontuacao} de ${enunciadosSelecionados.length} perguntas!
+            <div class="result-buttons">
+            <button onclick="location.reload()">Refazer Quiz</button>
+            <button onclick="location.href='dashboards.html'">Ir para Dash</button>
+            
+            </div>
+             `;
+
+            // Mostrar a seção de resultados
+            document.getElementById('results').classList.remove('hidden')
+            var erros = (enunciadosSelecionados.length - pontuacao)
+
+
+
+            registrar(pontuacao, erros, categoria)
+
+        }
+
+
+        function registrar(pontuacao, erros, categoria) {
+
+            var idCategoria = 0
+
+            if (categoria == 'grammar') {
+                idCategoria = 1
+            } else if (categoria == 'vocabulary') { idCategoria = 2 }
+            else if (categoria == 'reading') { idCategoria = 3 }
+            else { idCategoria = 4 }
+
+            fetch("/indices/registrar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    // crie um atributo que recebe o valor recuperado aqui
+                    // Agora vá para o arquivo routes/usuario.js
+                    pontosServer: pontuacao,
+                    errosServer: erros,
+                    fkUsuarioServer: sessionStorage.ID_USUARIO,
+                    fkCategoriaServer: idCategoria
+            }),
+            })
+                .then(function (resposta) {
+                    console.log("resposta: ", resposta);
+
+                    if (resposta.ok) {
+
+                    }
+                })
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>

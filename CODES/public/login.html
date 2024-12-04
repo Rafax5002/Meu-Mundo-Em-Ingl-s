@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <title> Meu Mundo em Inglês | Login </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="imgs/" type="image/x-icon">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <style>
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Caixa de entrada */
+        .input-box input {
+            width: calc(100% - 40px);
+            /* Ajuste para o ícone não sobrepor o texto */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--white-color);
+            /* Torna o texto branco ao passar o mouse */
+        }
+
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: auto;
+            background-color: var(--white-color);
+            border: 1px solid var(--input-border-color);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .input-box i {
+            width: 40px;
+            text-align: center;
+            color: var(--dark-gray-color);
+        }
+
+        /* Centralizando elementos */
+        
+
+        .cover,
+        .forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .cover .front,
+        .cover .back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .forms .form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .input-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-box {
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+            /* Necessário para ícones absolutos */
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            /* Espaço para o ícone */
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray-color);
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--white-color);
+            /* Torna o texto branco ao passar o mouse */
+        }
+
+      
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Caixa de entrada */
+        .input-box input {
+            width: calc(100% - 40px);
+            /* Ajuste para o ícone não sobrepor o texto */
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Fundo das páginas */
+       
+
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .input-box i {
+            width: 40px;
+            text-align: center;
+            color: var(--dark-gray-color);
+        }
+
+        
+   
+        .cover,
+        .forms {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .cover .front,
+        .cover .back {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .forms .form-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        .input-boxes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .input-box {
+            width: 100%;
+            margin: 10px 0;
+            position: relative;
+            /* Necessário para ícones absolutos */
+        }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px;
+            padding-left: 40px;
+            /* Espaço para o ícone */
+            margin-top: 5px;
+            border: 1px solid var(--input-border-color);
+            border-radius: 5px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .input-box input:focus {
+            border-color: var(--input-focus-color);
+        }
+
+        .input-box i {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--dark-gray-color);
+        }
+
+        /* Botão */
+        .button input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover {
+            background-color: var(--button-hover-color);
+        }
+
+        /* Texto */
+        .text a,
+        .text label {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .text a:hover,
+        .text label:hover {
+            color: var(--secondary-color);
+        }
+
+        
+        /* Ajustes adicionais */
+        .cover img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Estilo para nav-menu */
+        .nav-menu .nav-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            z-index: 1;
+            /* Garante que o texto fique acima do fundo */
+        }
+
+        .nav-menu .nav-link:hover {
+            color: var(--white-color);
+            /* Torna o texto branco ao passar o mouse */
+            background-color: var(--secondary-color);
+            /* Fundo vermelho */
+            z-index: 2;
+            /* Garante que o fundo vermelho fique abaixo do texto */
+        }
+
+        /* Botão de Gerar Senha */
+        #botao_gerar_senha {
+            background-color: var(--primary-color);
+            /* Azul primário */
+            color: var(--white-color);
+            /* Texto branco */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #botao_gerar_senha:hover {
+            background-color: var(--button-hover-color);
+            /* Cor ao passar o mouse */
+        }
+
+        /* Estilo para os botões */
+        .button input[type="submit"],
+        .button input[type="button"],
+        .button button {
+            background-color: var(--primary-color);
+            /* Azul primário */
+            color: var(--white-color);
+            /* Texto branco */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button input[type="submit"]:hover,
+        .button input[type="button"]:hover,
+        .button button:hover {
+            background-color: var(--button-hover-color);
+            /* Cor ao passar o mouse */
+        }
+
+        /* Estilo para o botão de Mostrar/Ocultar Senhas */
+        .toggle-password-button {
+            background-color: var(--primary-color);
+            /* Azul primário */
+            color: var(--white-color);
+            /* Texto branco */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+            /* Espaçamento superior para separar do botão Enviar */
+        }
+
+        .toggle-password-button:hover {
+            background-color: var(--button-hover-color);
+            /* Cor ao passar o mouse */
+        }
+    </style>
+        <header>
+            <nav class="navbar"> <a class="nav-logo">Meu Mundo em Inglês</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Início</a></li>
+                </ul>
+            </nav>
+        </header>
+    <body>
+
+        <div class="container"> <input type="checkbox" id="flip">
+           
+            <div class="forms">
+                <div class="form-content login-form">
+                    <div class="text"> <span class="text-1"> PRATIQUE SEU INGLÊS! <span>FAÇA LOGIN E VAMOS
+                                JUNTO!<br></span></span> </div>
+                    <form id="login-form" action="#">
+                        <div class="input-boxes">
+                            <div class="input-box"> <i class="fas fa-envelope"></i> <input id="login_email"
+                                    placeholder="Digite seu email" required> </div>
+                            <div class="input-box"> <i class="fas fa-lock"></i> <input type="password" id="login_senha"
+                                    placeholder="Digite sua senha" required> </div>
+                            <div class="button input-box"> <button onclick="login()">Enviar</button> </div>
+                            <div class="button input-box"> <button type="button"
+                                    onclick="alternarVisibilidadeSenhas()">Mostrar/Ocultar Senhas</button> </div>
+                            <div class="text sign-up-text">Não tem uma conta? <label for="flip">Cadastre-se
+                                    agora</label></div>
+                        </div>
+                    </form>
+                </div>
+                <div class="form-content signup-form">
+                    <div class="text"> <span class="text-1"><br> NÃO PERCA TEMPO! <span>CADASTRE-SE E ALCANCE A
+                                FLUÊNCIA!<br></span></span> </div>
+                    <form id="cadastro-form" action="#">
+                        <div class="input-boxes">
+                            <div class="input-box"> <i class="fas fa-user"></i> <input placeholder="Digite seu nome"
+                                    required id="input_nomeUsuario"> </div>
+                            <div class="input-box"> <i class="fas fa-envelope"></i> <input id="cadastro_email"
+                                    placeholder="Digite seu email" required> </div>
+                            <div class="input-box"> <i class="fas fa-lock"></i> <input type="password"
+                                    id="cadastro_senha" placeholder="Digite sua senha" required>
+
+                            </div>
+                            <div class="input-box"> <i class="fas fa-lock"></i> <input id="confirmacao_senha_input"
+                                    type="password" placeholder="Confirmar Senha" onkeyup="confirmacaoSenha()" />
+                                <div id="validacaoConfirmacao"></div><br>
+                            </div>
+                            <div class="button input-box"> <button onclick="cadastrar()">Enviar</button></div>
+                            <div class="button input-box"> <button type="button"
+                                    onclick="alternarVisibilidadeSenhas()">Mostrar/Ocultar Senhas</button> </div>
+                            <div class="text sign-up-text">Já tem uma conta? <label for="flip">Entrar agora</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <footer>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 Meu Mundo em Inglês - Rafael Pires Dias da Silva - 1ADSA</p>
+                </div>
+            </footer>
+    </body>
+
+
+
+</html>
+<script>
+    // Função para carregar usuários e senhas do localStorage
+    /* function carregarDados() {
+         const dadosUsuarios = localStorage.getItem('users');
+         const dadosSenhas = localStorage.getItem('passwords');
+         return {
+             users: dadosUsuarios ? JSON.parse(dadosUsuarios) : [],
+             passwords: dadosSenhas ? JSON.parse(dadosSenhas) : []
+         };
+     }*/
+
+    // Função para salvar usuários e senhas no localStorage
+    /* function salvarDados(users, passwords) {
+         localStorage.setItem('users', JSON.stringify(users));
+         localStorage.setItem('passwords', JSON.stringify(passwords));
+     }*/
+
+    /* Carregar dados ao iniciar
+    let { users, passwords } = carregarDados();
+    console.log("Usuários carregados:", users);
+    console.log("Senhas carregadas:", passwords);*/
+
+    function validarEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    function validarSenha(senha) {
+        const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+        return re.test(senha);
+    }
+
+    /* function usuarioExiste(email) {
+         return users.includes(email);
+     }*/
+
+    function cadastrar() {
+        const email = cadastro_email.value;
+        const senha = cadastro_senha.value
+        const confirmacaoSenha = confirmacao_senha_input.value;
+        const nomeUsuario = input_nomeUsuario.value
+        if (!validarEmail(email)) {
+            alert("Email inválido!");
+            return;
+        }
+        if (!validarSenha(senha)) {
+            alert("A senha deve ter pelo menos 8 caracteres, incluindo letras maiúsculas, minúsculas, números e caracteres especiais.");
+            return;
+        }
+        if (senha !== confirmacaoSenha) {
+            alert("As senhas não coincidem!");
+            return;
+        }
+
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeUsuario,
+                emailServer: email,
+                senhaServer: senha
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    alert("Cadastro Bem Sucedido!")
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                    alert("Houve um erro ao tentar realizar o cadastro.")
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+        return false;
+    }
+
+    // Função para realizar login
+    function login() {
+
+        const emailLogin = login_email.value
+        const senhaLogin = login_senha.value
+
+        if (!validarEmail(emailLogin)) {
+            alert("Email inválido!");
+            return;
+
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailLogin,
+                senhaServer: senhaLogin
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.id
+
+                    alert("Login Bem Sucedido! Redirecionando para Home...")
+                    window.location = "home.html";
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    // Array de caracteres para gerar senhas aleatórias
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+1234567890.';
+
+    // Função para gerar senha aleatória
+    function gerarSenha() {
+        var senha = '';
+        for (var i = 0; i < 12; i++) {
+            const randomIndex = Math.floor(Math.random() * caracteres.length);
+            senha += caracteres[randomIndex];
+        }
+        return senha;
+    }
+
+    // Função para configurar o botão de gerar senha
+    function configurarBotaoGerarSenha() {
+        const botaoGerarSenha = document.getElementById('botao_gerar_senha');
+        const inputSenha = document.getElementById('cadastro_senha');
+        const inputConfirmacaoSenha = document.getElementById('confirmacao_senha_input');
+        botaoGerarSenha.addEventListener('click', function () {
+            const novaSenha = gerarSenha();
+            inputSenha.value = novaSenha;
+            inputConfirmacaoSenha.value = novaSenha;
+        });
+    }
+
+    // Função para confirmar senha
+    function confirmacaoSenha() {
+        const senha = document.getElementById('cadastro_senha').value;
+        const confirmacao = document.getElementById('confirmacao_senha_input').value;
+        const validacaoConfirmacao = document.getElementById('validacaoConfirmacao');
+
+        if (senha !== confirmacao) {
+            validacaoConfirmacao.textContent = "As senhas não coincidem";
+            validacaoConfirmacao.style.color = "red";
+        } else {
+            validacaoConfirmacao.textContent = "As senhas coincidem";
+            validacaoConfirmacao.style.color = "green";
+        }
+    }
+
+    // Função para alternar a visibilidade de todas as senhas
+    function alternarVisibilidadeSenhas() {
+        const senhas = document.querySelectorAll('input[type="password"], input[type="text"]');
+        senhas.forEach(senha => {
+            if (senha.type === 'password') {
+                senha.type = 'text';
+            } else {
+                senha.type = 'password';
+            }
+        });
+    }
+
+    // Configura o botão de gerar senha e alternar visibilidade após o carregamento da página
+    document.addEventListener('DOMContentLoaded', () => {
+        configurarBotaoGerarSenha();
+    });
+
+    // Funções para manipulação do formulário de login e cadastro
+    /*document.getElementById('login-form').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const email = login_email.value
+        const senha = login_senha.value;
+        login(email, senha);
+    });*/
+
+</script>

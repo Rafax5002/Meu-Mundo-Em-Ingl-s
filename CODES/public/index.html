@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meu Mundo em Inglês | Página Inicial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="imgs/logo.png" type="image/x-icon">
+</head>
+<style>
+    header {
+        background: #0044cc;
+        color: #fff;
+        padding: 1rem;
+    }
+ 
+footer {
+    margin-top: 100px;
+    text-align: center;
+    padding: 1rem;
+    background: #0044cc;
+    color: #fff;
+    font-size: 0.875rem;
+}
+.footer-section {
+    background: var(--dark-color);
+    padding: 20px 0;
+    color: var(--white-color);
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+}
+
+.footer-section .section-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-logo h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.footer-links ul li a {
+    color: var(--white-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links ul li a:hover {
+    color: var(--primary-color);
+}
+
+.footer-social {
+    margin-top: 20px;
+}
+
+.footer-social .social-link {
+    color: var(--white-color);
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.footer-social .social-link:hover {
+    color: var(--primary-color);
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: var(--light-blue-color); /* Caixa azul */
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Certifica-se de que a imagem é um bloco */
+    margin: auto; /* Centraliza a imagem horizontalmente */
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 900px;
+    margin: auto;
+    background-color: var(--white-color);
+    border: 1px solid var(--input-border-color);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esconde qualquer conteúdo que ultrapasse os limites do contêiner */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px; /* Altura fixa para a caixa azul */
+    background-color: var(--light-blue-color); /* Caixa azul */
+}
+
+.image-container img {
+    max-width: 100%;
+    max-height: 100%; /* Limita a altura máxima da imagem para se ajustar à caixa */
+    height: auto;
+    display: block; /* Certifica-se de que a imagem é um bloco */
+    margin: auto; /* Centraliza a imagem horizontalmente */
+}
+
+/* About Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray-color);
+    padding: 50px 20px;
+    position: relative; /* Necessário para ajuste de posição */
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: -30px; /* Ajuste a margem negativa conforme necessário */
+}
+
+.about-image-wrapper {
+    margin-right: 20px;
+}
+
+.about-details {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-details .section-title {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+
+.test-section p {
+    color: var(--dark-gray-color);
+    margin: 20px 0;
+}
+
+.test-section .nav-item {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-section .nav-item:hover {
+    background-color: var(--button-hover-color);
+}
+/* About Section */
+.about-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light-gray-color);
+    padding: 50px 20px;
+    position: relative; /* Necessário para ajuste de posição */
+}
+
+.quiz-content {
+    display: flex;
+    flex-direction: row; /* Alinha horizontalmente a imagem e o texto */
+    align-items: center; /* Alinha verticalmente a imagem e o texto */
+}
+
+.about-image-wrapper {
+    margin-right: 20px; /* Espaço entre a imagem e o texto */
+    flex-shrink: 0; /* Previne que a imagem diminua em tamanho */
+}
+
+.about-details {
+    max-width: 600px;
+    text-align: left;
+}
+
+.about-details .section-title {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+}
+
+.test-section p {
+    color: var(--dark-gray-color);
+    margin: 20px 0;
+}
+
+.test-section .nav-item {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.test-section .nav-item:hover {
+    background-color: var(--button-hover-color);
+}
+
+</style>
+
+<body>
+    <!-- Header / Navbar -->
+    <header id="scroll-element">
+        <nav class="navbar">
+            <a  class="nav-logo">Meu Mundo em Inglês</a>
+            <ul class="nav-menu">
+               
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">Cadastro</a>
+                </li>
+            </ul>
+           
+        </nav>
+    </header>
+
+    <main>
+        <!-- bloco de recepção do site -->
+        <section class="hero-section" id="section-image">
+            <div class="bloco">
+                <div class="section-content">
+                        <h3 class="section-title"> QUER MELHORAR SEU INGLÊS? <span>VENHA COMIGO E DESCUBRA!</span> </h3>
+                
+            </div>
+                        <br>
+                    </div>
+                </div>  
+        </section>
+        <section class="background-image"></section>
+            <!-- bloco do quiz -->
+            <section class="about-section" id="quiz">
+                <div class="quiz">
+                    <img src="imgs/quiz.png" alt="Quiz Interativo" style="width: 500px;" />
+                    <div class="about-details">
+                        <h1 class="section-title">Teste seu Inglês com Um Quiz Interativo!</h1>
+                        <p>Responda algumas perguntas e veja quantas consegue acertar!</p>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- bloco de nossos Serviços -->
+            <section class="menu-section" id="menu">
+                <h2 class="section-title">O que vai encontrar aqui?</h2>
+                <div class="section-content">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <img src="imgs/monitoramento.jpg" alt="Monitoramento de Progresso" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Monitoramento de Progresso</h3>
+                                <p class="text">Com base nas respostas do quiz, foram criadas dashboards personalizadas
+                                    que
+                                    permitem monitorar seu progresso e identificar áreas para melhoria contínua no
+                                    aprendizado de inglês.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/conversacao.png" alt="Prática de Conversação" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Quiz Interativo</h3>
+                                <p class="text">Teste seus conhecientos em diversas áreas de inglês com um Quiz
+                                    feito
+                                    especialmente para praticar diversos usos da língua inglesa.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/analise.png" alt="Análise de Desempenho" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Análise de Desempenho</h3>
+                                <p class="text">Receba análises detalhadas sobre seu desempenho
+                                    para alcançar a melhor eficiência no aprendizado em inglês.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- bloco sobre nós -->
+            <section class="about-section" id="about">
+                <div class="section-content">
+                    <div class="about-image-wrapper">
+                        <img src="imgs/rafael.jpg" alt="Sobre nós" style="width: 400px;" />
+                    </div>
+                    <div class="about-details">
+                        <h2 class="section-title">Sobre Mim</h2>
+                        <p class="text">Sou Rafael Pires, um aluno da SPTech, que é também um grande fâ da Língua
+                            Inglesa.
+                            Certificado Cambridge na modalidade B2 via FCE, cursei CNA entre os anos de 2014 até 2022.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- bloco missão, valores e visão -->
+            <section class="menu-section" id="Missao">
+                <h2 class="section-title">Meus Princípios</h2>
+                <div class="section-content">
+                    <ul class="menu-list">
+                        <li class="menu-item">
+                            <img src="imgs/valores.png" alt="Valores" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Valores</h3>
+                                <p class="text">Valorizo uma educação de qualidade, com engajamento do usuário, e determinação para atingir seu potencial no aprendizado da língua.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/missao.png" alt="Missão" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Missão</h3>
+                                <p class="text">Minha missão é garantir que cada usuário atinja seu potencial máximo no
+                                    aprendizado de inglês, oferecendo soluções personalizadas e inovadoras.</p>
+                            </div>
+                        </li>
+                        <li class="menu-item">
+                            <img src="imgs/visao.png" alt="Visão" class="menu-image" />
+                            <div class="menu-details">
+                                <h3 class="name">Visão</h3>
+                                <p class="text">Ser uma mão amiga para qualquer usuário que tenha o objetivo de
+                                    aperfeiçoar seu inglês oferecendo apoio na prática da língua.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+               
+                <!-- Footer section -->
+               
+    <footer>
+        <p>&copy; 2024 Meu Mundo em Inglês - Rafael Pires Dias da Silva - 1ADSA</p>
+    </footer>
+
+    </main>
+</body>
+
+</html>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>

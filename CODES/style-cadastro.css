@@ -1,0 +1,194 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+
+/* Bloco de criação de variáveis para padronização */
+:root {
+    /* Cores */
+    --white-color: #ffffff; /* Branco */
+    --dark-color: #030320; /* Cor escura */
+    --primary-color: #0044cc; /* Azul */
+    --secondary-color: #cc0000; /* Vermelho */
+    --light-gray-color: #f8f9fa; /* Cinza claro */
+    --dark-gray-color: #333; /* Cinza escuro */
+    --input-border-color: #ccc; /* Borda de input */
+    --input-focus-color: #0055ff; /* Foco de input */
+    --button-hover-color: #990000; /* Hover dos botões */
+    --social-hover-color: #002366; /* Hover dos ícones sociais */
+  
+    /* Tamanhos de fonte */
+    --font-size-s: 0.9rem;
+    --font-size-n: 1rem;
+    --font-size-m: 1.12rem;
+    --font-size-l: 1.5rem;
+    --font-size-xl: 2rem;
+  
+    /* Espessuras da fonte */
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+  
+    /* Raio da borda */
+    --border-radius-s: 8px;
+    --border-radius-m: 30px;
+}
+
+/* Reseta e configuração padrão */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: var(--light-gray-color); /* Fundo branco */
+}
+
+/* Estilos do container */
+.container {
+  position: relative;
+  max-width: 700px;
+  width: 100%;
+  background: var(--white-color); /* Fundo branco */
+  padding: 25px;
+  border-radius: var(--border-radius-s);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.container header {
+  font-size: var(--font-size-xl);
+  color: var(--dark-gray-color);
+  font-weight: var(--font-weight-medium);
+  text-align: center;
+  position: relative;
+}
+
+.container header::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 2px;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 180px;
+  background: var(--secondary-color);
+}
+
+.container .form {
+  margin-top: 30px;
+}
+
+/* Estilos dos campos de entrada */
+.form .input-box {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.input-box label {
+  color: var(--dark-gray-color);
+}
+
+.form .input-box input, .select-box {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: var(--font-size-n);
+  color: var(--dark-gray-color);
+  margin-top: 8px;
+  border: 1px solid var(--input-border-color);
+  border-radius: var(--border-radius-s);
+  padding: 0 15px;
+  transition: box-shadow 0.3s ease;
+}
+
+.input-box input:focus {
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos da coluna */
+.form .column {
+  display: flex;
+  column-gap: 15px;
+}
+
+/* Estilos da seleção de gênero */
+.form .gender-box {
+  margin-top: 20px;
+}
+
+.gender-box h3 {
+  color: var(--dark-gray-color);
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-normal);
+  margin-bottom: 8px;
+}
+
+.form .gender-option, .gender {
+  display: flex;
+  align-items: center;
+  column-gap: 50px;
+  flex-wrap: wrap;
+}
+
+.form .gender {
+  column-gap: 5px;
+}
+
+.gender input {
+  accent-color: var(--secondary-color);
+}
+
+.gender label {
+  color: var(--dark-gray-color);
+  cursor: pointer;
+}
+
+/* Estilos do endereço */
+.address input, .select-box {
+  margin-top: 15px;
+}
+
+.select-box select {
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  color: var(--dark-gray-color);
+  font-size: var(--font-size-n);
+}
+
+/* Estilos do botão */
+.form button {
+  height: 55px;
+  width: 100%;
+  color: var(--white-color);
+  font-size: var(--font-size-n);
+  font-weight: var(--font-weight-normal);
+  margin-top: 30px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: var(--secondary-color);
+  border-radius: var(--border-radius-s);
+}
+
+.form button:hover {
+  background: var(--button-hover-color);
+}
+
+/* Responsividade */
+@media screen and (max-width: 500px) {
+  .form .column {
+    flex-wrap: wrap;
+  }
+
+  .gender-option, .gender {
+    row-gap: 15px;
+  }
+}

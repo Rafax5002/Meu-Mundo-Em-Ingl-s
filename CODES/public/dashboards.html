@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body onload="buscarDadosDash()">
+
+    <style>
+    
+        h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+        
+        }
+
+        main{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+
+    <header>
+        <nav class="navbar">
+            <h1>Dashboard de Desempenho</h1>
+            <ul class="nav-menu">
+                <li><a href="home.html" class="nav-link">Home</a></li>
+                <li><a href="quiz.html" class="nav-link">Quiz</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        
+ 
+      <div class="chart-card" id="right-chart">
+                    <h2>Categoria com Maior Índice de Erros (Geral)</h2>
+                    <p id="p_nomeCategoria"></p>
+                    <p id="p_qtdErrosCat"></p>
+                </div>
+ 
+        <section class="dashboard-container">
+          
+
+            <div class="chart-card" id="left-chart">
+                <h2>Categoria Mais Selecionada</h2>
+                <canvas id="categoriaMaisSelecionada"></canvas>
+            </div>
+         
+            <div class="chart-card" id="center-chart">
+                <h2>Acertos e Erros Por Categoria</h2>
+                <canvas id="indicesPorCategoria"></canvas>
+            </div>
+         
+          
+        </section>
+    </main>
+    <script>
+    document.addEventListener('keydown', function (event) {
+        if (event.altKey && event.key == 'i') {
+            window.location.href = 'index.html'; // Atalho para a página de Início
+        } else if (event.altKey && event.key == 'l') {
+            window.location.href = 'login.html'; // Atalho para a página de Login
+        }
+    });
+    
+    function buscarDadosDash() {
+    
+        fetch(`/indices/${sessionStorage.ID_USUARIO}`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+    
+                    plotarGraficos(resposta);
+    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    
+        fetch(`/indices/erros`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+    
+                    kpiErros(resposta);
+    
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    
+    }
+    
+    function plotarGraficos(dados) {
+    
+        console.log('iniciando plotagem do gráfico...');
+    
+        // Criando estrutura para plotar gráfico - labels
+        var nomeCategoria = []
+        var acessosCategorias = []
+        var acertosCategoria = []
+        var errosCategoria = []
+    
+        for (var posicao = 0; posicao < dados.length; posicao++) {
+            nomeCategoria.push(dados[posicao].nome);
+            acessosCategorias.push(dados[posicao].agregado);
+            acertosCategoria.push(dados[posicao].acertos);
+            errosCategoria.push(dados[posicao].erros);
+        }
+    
+        // Gráfico de Mais Acessados
+        var graficoMaisAcessados = document.getElementById('categoriaMaisSelecionada').getContext('2d');
+        var myChart1 = new Chart(graficoMaisAcessados, {
+            type: 'bar', // Tipo de gráfico: barra
+            data: { // Dados para o gráfico
+                labels: nomeCategoria, // Rótulos no eixo X
+                datasets: [{
+                    label: 'Acessos', // Nome do conjunto de dados
+                    data: acessosCategorias, // Dados dos votos
+                    backgroundColor: [
+                        'rgba(0, 68, 204, 0.2)', // Primary color
+                        'rgba(204, 0, 0, 0.2)', // Secondary color
+                        'rgba(255, 204, 203, 0.2)', // Light Pink
+                        'rgba(204, 0, 0, 0.2)', // Secondary color
+                        'rgba(204, 0, 0, 0.2)' // Secondary color
+                    ],
+                    borderColor: [
+                        'rgba(0, 68, 204, 1)', // Primary color
+                        'rgba(204, 0, 0, 1)', // Secondary color
+                        'rgba(255, 204, 203, 1)', // Light Pink
+                        'rgba(204, 0, 0, 1)', // Secondary color
+                        'rgba(204, 0, 0, 1)' // Secondary color
+                    ],
+                    borderWidth: 1 // Largura da borda das linhas
+                }]
+            },
+        });
+    
+        // Gráfico de Erros e Acertos
+        var graficoErrosAcertos = document.getElementById('indicesPorCategoria').getContext('2d');
+        var myChart2 = new Chart(graficoErrosAcertos, {
+            type: 'bar', // Tipo de gráfico: barra
+            data: { // Dados para o gráfico
+                labels: nomeCategoria, // Rótulos no eixo X
+                datasets: [{
+                    label: 'Acertos', // Nome do conjunto de dados
+                    data: acertosCategoria, // Dados dos votos
+                    backgroundColor: [
+                        'rgba(0, 68, 204, 0.2)', // Primary color
+                    ],
+                    borderColor: [
+                        'rgba(0, 68, 204, 1)', // Primary color
+                    ],
+                    borderWidth: 1 // Largura da borda das linhas
+                }, {
+                    label: 'Erros', // Nome do conjunto de dados
+                    data: errosCategoria, // Dados dos votos
+                    backgroundColor: [
+                        'rgba(204, 0, 0, 0.2)', // Secondary color
+                    ],
+                    borderColor: [
+                        'rgba(204, 0, 0, 1)', // Secondary color
+                    ],
+                    borderWidth: 1 // Largura da borda das linhas
+                }]
+            },
+        });
+    }
+    
+    function kpiErros(dados) {
+        var nomeCategoria = dados[0].nome;
+        var qtdErros = dados[0].erros;
+    
+        p_nomeCategoria.innerHTML = nomeCategoria;
+        p_qtdErrosCat.innerHTML = `${qtdErros} usuários`;
+        console.log(nomeCategoria)
+        console.log(qtdErros)
+    }
+    </script>
+    
+</body>
+
+</html>
